@@ -77,15 +77,15 @@
      <rect>
       <x>0</x>
       <y>10</y>
-      <width>161</width>
-      <height>131</height>
+      <width>101</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>img/logo.png</pixmap>
+     <pixmap>img/logo.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

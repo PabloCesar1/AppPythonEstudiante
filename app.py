@@ -7,9 +7,10 @@ import sys
 import os
 import sqlite3
 import datetime
-import cv2
+import cv2 # Descargado opencv-python
 from PyQt5 import uic, QtWidgets, QtGui #importamos uic y QtWidgets desde el modulo PyQt5
 from random import randint
+from conexion import conexionDB
 
 
 qtCreatorFile = "diseño.ui" # Nombre del archivo aquí.
@@ -46,7 +47,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.listaEstudiantes.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
 		self.listaEstudiantes.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
 		self.btnEliminar.setEnabled(False)
-		self.conexionDB() # Al iniciar la aplicacion se crea la base de datos
+		conexionDB(self) # Conexión a la base de datos creada en postgres
 		self.mostrarEstudiantes()
 
 	def closeEvent(self, event):
