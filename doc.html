@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module app</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>app</strong></big></big></font></td
+>
+</tr></table>
+    <p><tt>Aplicación&nbsp;de&nbsp;Registro&nbsp;de&nbsp;Estudiantes<br>
+Creado&nbsp;el&nbsp;25&nbsp;de&nbsp;Enero&nbsp;de&nbsp;2018<br>
+@author:&nbsp;Pablo&nbsp;España&nbsp;B.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modulos</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PyQt5.QtGui.html">PyQt5.QtGui</a><br>
+<a href="PyQt5.QtWidgets.html">PyQt5.QtWidgets</a><br>
+</td><td width="25%" valign=top><a href="cv2.cv2.html">cv2.cv2</a><br>
+<a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="PyQt5.uic.html">PyQt5.uic</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Clases</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>(<a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="app.html#Estudiante">Estudiante</a>(<a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>, builtins.Ui_Fondo)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial">builtins.Ui_Fondo(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="app.html#Estudiante">Estudiante</a>(<a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>, builtins.Ui_Fondo)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Estudiante">class <strong>Estudiante</strong></a>(<a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>, builtins.Ui_Fondo)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Este&nbsp;clase&nbsp;contiene&nbsp;los&nbsp;metodos&nbsp;para&nbsp;el&nbsp;manejo&nbsp;de&nbsp;registro&nbsp;de&nbsp;estudiantes<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="app.html#Estudiante">Estudiante</a></dd>
+<dd><a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a></dd>
+<dd><a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a></dd>
+<dd><a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a></dd>
+<dd><a href="sip.html#wrapper">sip.wrapper</a></dd>
+<dd><a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a></dd>
+<dd><a href="sip.html#simplewrapper">sip.simplewrapper</a></dd>
+<dd>builtins.Ui_Fondo</dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Estudiante-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Metodo&nbsp;constructor&nbsp;de&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-borrarCampos"><strong>borrarCampos</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;vaciar&nbsp;los&nbsp;campos&nbsp;del&nbsp;formulario&nbsp;de&nbsp;registro</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-buscarEstudiante"><strong>buscarEstudiante</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;buscar&nbsp;un&nbsp;estudiante&nbsp;mediante&nbsp;su&nbsp;cedula,&nbsp;nombres,&nbsp;apellidos&nbsp;o&nbsp;nivel</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-buscarImagen"><strong>buscarImagen</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;buscar&nbsp;una&nbsp;imagen&nbsp;en&nbsp;nuestro&nbsp;equipo</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-cargarImagen"><strong>cargarImagen</strong></a>(self, fname)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;cargar&nbsp;la&nbsp;imagen&nbsp;seleccionada<br>
+fname&nbsp;representa&nbsp;al&nbsp;nombre&nbsp;del&nbsp;archivo</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-closeEvent"><strong>closeEvent</strong></a>(self, event)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;confirmar&nbsp;el&nbsp;cierre&nbsp;de&nbsp;una&nbsp;ventana</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-conexionDB"><strong>conexionDB</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;la&nbsp;conexion&nbsp;a&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;interna</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-eliminarEstudiante"><strong>eliminarEstudiante</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;eliminar&nbsp;un&nbsp;registro&nbsp;de&nbsp;estudiantes&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-guardarImagen"><strong>guardarImagen</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;guardar&nbsp;la&nbsp;imagen&nbsp;en&nbsp;nuestro&nbsp;equipo</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mostrarEstudiantes"><strong>mostrarEstudiantes</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;mostrar&nbsp;los&nbsp;estudiantes&nbsp;registrados&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mostrarImagen"><strong>mostrarImagen</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;mostrar&nbsp;en&nbsp;la&nbsp;aplicacion&nbsp;la&nbsp;imagen&nbsp;seleccionada</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-registrarEstudiante"><strong>registrarEstudiante</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;registrar&nbsp;y&nbsp;modificar&nbsp;estudiantes&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-seleccionarFila"><strong>seleccionarFila</strong></a>(self)</dt><dd><tt>Este&nbsp;metodo&nbsp;nos&nbsp;permite&nbsp;seleccionar&nbsp;una&nbsp;fila&nbsp;de&nbsp;la&nbsp;tabla&nbsp;y&nbsp;obtener&nbsp;sus&nbsp;datos</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>:<br>
+<dl><dt><a name="Estudiante-actionEvent"><strong>actionEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-addDockWidget"><strong>addDockWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-addDockWidget">addDockWidget</a>(self,&nbsp;Qt.DockWidgetArea,&nbsp;QDockWidget)<br>
+<a href="#Estudiante-addDockWidget">addDockWidget</a>(self,&nbsp;Qt.DockWidgetArea,&nbsp;QDockWidget,&nbsp;Qt.Orientation)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-addToolBar"><strong>addToolBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-addToolBar">addToolBar</a>(self,&nbsp;Qt.ToolBarArea,&nbsp;QToolBar)<br>
+<a href="#Estudiante-addToolBar">addToolBar</a>(self,&nbsp;QToolBar)<br>
+<a href="#Estudiante-addToolBar">addToolBar</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;QToolBar</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-addToolBarBreak"><strong>addToolBarBreak</strong></a>(...)</dt><dd><tt><a href="#Estudiante-addToolBarBreak">addToolBarBreak</a>(self,&nbsp;area:&nbsp;Qt.ToolBarArea&nbsp;=&nbsp;Qt.TopToolBarArea)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-centralWidget"><strong>centralWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-centralWidget">centralWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-changeEvent"><strong>changeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-childEvent"><strong>childEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-connectNotify"><strong>connectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-contextMenuEvent"><strong>contextMenuEvent</strong></a>(...)</dt><dd><tt><a href="#Estudiante-contextMenuEvent">contextMenuEvent</a>(self,&nbsp;QContextMenuEvent)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-corner"><strong>corner</strong></a>(...)</dt><dd><tt><a href="#Estudiante-corner">corner</a>(self,&nbsp;Qt.Corner)&nbsp;-&gt;&nbsp;Qt.DockWidgetArea</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-create"><strong>create</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-createPopupMenu"><strong>createPopupMenu</strong></a>(...)</dt><dd><tt><a href="#Estudiante-createPopupMenu">createPopupMenu</a>(self)&nbsp;-&gt;&nbsp;QMenu</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-customEvent"><strong>customEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-disconnectNotify"><strong>disconnectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-dockOptions"><strong>dockOptions</strong></a>(...)</dt><dd><tt><a href="#Estudiante-dockOptions">dockOptions</a>(self)&nbsp;-&gt;&nbsp;<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOptions</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-dockWidgetArea"><strong>dockWidgetArea</strong></a>(...)</dt><dd><tt><a href="#Estudiante-dockWidgetArea">dockWidgetArea</a>(self,&nbsp;QDockWidget)&nbsp;-&gt;&nbsp;Qt.DockWidgetArea</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-documentMode"><strong>documentMode</strong></a>(...)</dt><dd><tt><a href="#Estudiante-documentMode">documentMode</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-dragEnterEvent"><strong>dragEnterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-dragLeaveEvent"><strong>dragLeaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-dragMoveEvent"><strong>dragMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-dropEvent"><strong>dropEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-enterEvent"><strong>enterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-event"><strong>event</strong></a>(...)</dt><dd><tt><a href="#Estudiante-event">event</a>(self,&nbsp;QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-focusInEvent"><strong>focusInEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-focusNextChild"><strong>focusNextChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-focusNextPrevChild"><strong>focusNextPrevChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-focusOutEvent"><strong>focusOutEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-focusPreviousChild"><strong>focusPreviousChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-hideEvent"><strong>hideEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-iconSize"><strong>iconSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-iconSize">iconSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<strong>iconSizeChanged</strong> = &lt;unbound PYQT_SIGNAL iconSizeChanged(QSize)&gt;
+<dl><dt><a name="Estudiante-initPainter"><strong>initPainter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-inputMethodEvent"><strong>inputMethodEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-insertToolBar"><strong>insertToolBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-insertToolBar">insertToolBar</a>(self,&nbsp;QToolBar,&nbsp;QToolBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-insertToolBarBreak"><strong>insertToolBarBreak</strong></a>(...)</dt><dd><tt><a href="#Estudiante-insertToolBarBreak">insertToolBarBreak</a>(self,&nbsp;QToolBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isAnimated"><strong>isAnimated</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isAnimated">isAnimated</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isDockNestingEnabled"><strong>isDockNestingEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isDockNestingEnabled">isDockNestingEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isSeparator"><strong>isSeparator</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isSeparator">isSeparator</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isSignalConnected"><strong>isSignalConnected</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-keyPressEvent"><strong>keyPressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-leaveEvent"><strong>leaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-menuBar"><strong>menuBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-menuBar">menuBar</a>(self)&nbsp;-&gt;&nbsp;QMenuBar</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-menuWidget"><strong>menuWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-menuWidget">menuWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-metric"><strong>metric</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-mouseDoubleClickEvent"><strong>mouseDoubleClickEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-mousePressEvent"><strong>mousePressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-moveEvent"><strong>moveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-nativeEvent"><strong>nativeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-paintEvent"><strong>paintEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-receivers"><strong>receivers</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-removeDockWidget"><strong>removeDockWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-removeDockWidget">removeDockWidget</a>(self,&nbsp;QDockWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-removeToolBar"><strong>removeToolBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-removeToolBar">removeToolBar</a>(self,&nbsp;QToolBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-removeToolBarBreak"><strong>removeToolBarBreak</strong></a>(...)</dt><dd><tt><a href="#Estudiante-removeToolBarBreak">removeToolBarBreak</a>(self,&nbsp;QToolBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-resizeDocks"><strong>resizeDocks</strong></a>(...)</dt><dd><tt><a href="#Estudiante-resizeDocks">resizeDocks</a>(self,&nbsp;Iterable[QDockWidget],&nbsp;Iterable[int],&nbsp;Qt.Orientation)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-resizeEvent"><strong>resizeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-restoreDockWidget"><strong>restoreDockWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-restoreDockWidget">restoreDockWidget</a>(self,&nbsp;QDockWidget)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-restoreState"><strong>restoreState</strong></a>(...)</dt><dd><tt><a href="#Estudiante-restoreState">restoreState</a>(self,&nbsp;Union[QByteArray,&nbsp;bytes,&nbsp;bytearray],&nbsp;version:&nbsp;int&nbsp;=&nbsp;0)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-saveState"><strong>saveState</strong></a>(...)</dt><dd><tt><a href="#Estudiante-saveState">saveState</a>(self,&nbsp;version:&nbsp;int&nbsp;=&nbsp;0)&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-sender"><strong>sender</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-senderSignalIndex"><strong>senderSignalIndex</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-setAnimated"><strong>setAnimated</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAnimated">setAnimated</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setCentralWidget"><strong>setCentralWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setCentralWidget">setCentralWidget</a>(self,&nbsp;QWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setCorner"><strong>setCorner</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setCorner">setCorner</a>(self,&nbsp;Qt.Corner,&nbsp;Qt.DockWidgetArea)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setDockNestingEnabled"><strong>setDockNestingEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setDockNestingEnabled">setDockNestingEnabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setDockOptions"><strong>setDockOptions</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setDockOptions">setDockOptions</a>(self,&nbsp;Union[<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOptions,&nbsp;<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOption])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setDocumentMode"><strong>setDocumentMode</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setDocumentMode">setDocumentMode</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setIconSize"><strong>setIconSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setIconSize">setIconSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMenuBar"><strong>setMenuBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMenuBar">setMenuBar</a>(self,&nbsp;QMenuBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMenuWidget"><strong>setMenuWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMenuWidget">setMenuWidget</a>(self,&nbsp;QWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setStatusBar"><strong>setStatusBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setStatusBar">setStatusBar</a>(self,&nbsp;QStatusBar)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setTabPosition"><strong>setTabPosition</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setTabPosition">setTabPosition</a>(self,&nbsp;Union[Qt.DockWidgetAreas,&nbsp;Qt.DockWidgetArea],&nbsp;QTabWidget.TabPosition)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setTabShape"><strong>setTabShape</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setTabShape">setTabShape</a>(self,&nbsp;QTabWidget.TabShape)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setToolButtonStyle"><strong>setToolButtonStyle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setToolButtonStyle">setToolButtonStyle</a>(self,&nbsp;Qt.ToolButtonStyle)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setUnifiedTitleAndToolBarOnMac"><strong>setUnifiedTitleAndToolBarOnMac</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setUnifiedTitleAndToolBarOnMac">setUnifiedTitleAndToolBarOnMac</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-sharedPainter"><strong>sharedPainter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-showEvent"><strong>showEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-splitDockWidget"><strong>splitDockWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-splitDockWidget">splitDockWidget</a>(self,&nbsp;QDockWidget,&nbsp;QDockWidget,&nbsp;Qt.Orientation)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-statusBar"><strong>statusBar</strong></a>(...)</dt><dd><tt><a href="#Estudiante-statusBar">statusBar</a>(self)&nbsp;-&gt;&nbsp;QStatusBar</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-tabPosition"><strong>tabPosition</strong></a>(...)</dt><dd><tt><a href="#Estudiante-tabPosition">tabPosition</a>(self,&nbsp;Qt.DockWidgetArea)&nbsp;-&gt;&nbsp;QTabWidget.TabPosition</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-tabShape"><strong>tabShape</strong></a>(...)</dt><dd><tt><a href="#Estudiante-tabShape">tabShape</a>(self)&nbsp;-&gt;&nbsp;QTabWidget.TabShape</tt></dd></dl>
+
+<strong>tabifiedDockWidgetActivated</strong> = &lt;unbound PYQT_SIGNAL tabifiedDockWidgetActivated(QDockWidget*)&gt;
+<dl><dt><a name="Estudiante-tabifiedDockWidgets"><strong>tabifiedDockWidgets</strong></a>(...)</dt><dd><tt><a href="#Estudiante-tabifiedDockWidgets">tabifiedDockWidgets</a>(self,&nbsp;QDockWidget)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-tabifyDockWidget"><strong>tabifyDockWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-tabifyDockWidget">tabifyDockWidget</a>(self,&nbsp;QDockWidget,&nbsp;QDockWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-tabletEvent"><strong>tabletEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-takeCentralWidget"><strong>takeCentralWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-takeCentralWidget">takeCentralWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-timerEvent"><strong>timerEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-toolBarArea"><strong>toolBarArea</strong></a>(...)</dt><dd><tt><a href="#Estudiante-toolBarArea">toolBarArea</a>(self,&nbsp;QToolBar)&nbsp;-&gt;&nbsp;Qt.ToolBarArea</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-toolBarBreak"><strong>toolBarBreak</strong></a>(...)</dt><dd><tt><a href="#Estudiante-toolBarBreak">toolBarBreak</a>(self,&nbsp;QToolBar)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-toolButtonStyle"><strong>toolButtonStyle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-toolButtonStyle">toolButtonStyle</a>(self)&nbsp;-&gt;&nbsp;Qt.ToolButtonStyle</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-unifiedTitleAndToolBarOnMac"><strong>unifiedTitleAndToolBarOnMac</strong></a>(...)</dt><dd><tt><a href="#Estudiante-unifiedTitleAndToolBarOnMac">unifiedTitleAndToolBarOnMac</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-updateMicroFocus"><strong>updateMicroFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Estudiante-wheelEvent"><strong>wheelEvent</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtWidgets.html#QMainWindow">PyQt5.QtWidgets.QMainWindow</a>:<br>
+<dl><dt><strong>AllowNestedDocks</strong> = 2</dl>
+
+<dl><dt><strong>AllowTabbedDocks</strong> = 4</dl>
+
+<dl><dt><strong>AnimatedDocks</strong> = 1</dl>
+
+<dl><dt><strong>DockOption</strong> = &lt;class 'PyQt5.QtWidgets.QMainWindow.DockOption'&gt;</dl>
+
+<dl><dt><strong>DockOptions</strong> = &lt;class 'PyQt5.QtWidgets.DockOptions'&gt;<dd><tt><a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.<a href="#Estudiante-DockOptions">DockOptions</a>()<br>
+<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.<a href="#Estudiante-DockOptions">DockOptions</a>(Union[<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOptions,&nbsp;<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOption])<br>
+<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.<a href="#Estudiante-DockOptions">DockOptions</a>(<a href="PyQt5.QtWidgets.html#QMainWindow">QMainWindow</a>.DockOptions)</tt></dl>
+
+<dl><dt><strong>ForceTabbedDocks</strong> = 8</dl>
+
+<dl><dt><strong>GroupedDragging</strong> = 32</dl>
+
+<dl><dt><strong>VerticalTabs</strong> = 16</dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>:<br>
+<dl><dt><a name="Estudiante-acceptDrops"><strong>acceptDrops</strong></a>(...)</dt><dd><tt><a href="#Estudiante-acceptDrops">acceptDrops</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-accessibleDescription"><strong>accessibleDescription</strong></a>(...)</dt><dd><tt><a href="#Estudiante-accessibleDescription">accessibleDescription</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-accessibleName"><strong>accessibleName</strong></a>(...)</dt><dd><tt><a href="#Estudiante-accessibleName">accessibleName</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-actions"><strong>actions</strong></a>(...)</dt><dd><tt><a href="#Estudiante-actions">actions</a>(self)&nbsp;-&gt;&nbsp;List[QAction]</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-activateWindow"><strong>activateWindow</strong></a>(...)</dt><dd><tt><a href="#Estudiante-activateWindow">activateWindow</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-addAction"><strong>addAction</strong></a>(...)</dt><dd><tt><a href="#Estudiante-addAction">addAction</a>(self,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-addActions"><strong>addActions</strong></a>(...)</dt><dd><tt><a href="#Estudiante-addActions">addActions</a>(self,&nbsp;object)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-adjustSize"><strong>adjustSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-adjustSize">adjustSize</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-autoFillBackground"><strong>autoFillBackground</strong></a>(...)</dt><dd><tt><a href="#Estudiante-autoFillBackground">autoFillBackground</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-backgroundRole"><strong>backgroundRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-backgroundRole">backgroundRole</a>(self)&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-baseSize"><strong>baseSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-baseSize">baseSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-childAt"><strong>childAt</strong></a>(...)</dt><dd><tt><a href="#Estudiante-childAt">childAt</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QWidget<br>
+<a href="#Estudiante-childAt">childAt</a>(self,&nbsp;int,&nbsp;int)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-childrenRect"><strong>childrenRect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-childrenRect">childrenRect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-childrenRegion"><strong>childrenRegion</strong></a>(...)</dt><dd><tt><a href="#Estudiante-childrenRegion">childrenRegion</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-clearFocus"><strong>clearFocus</strong></a>(...)</dt><dd><tt><a href="#Estudiante-clearFocus">clearFocus</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-clearMask"><strong>clearMask</strong></a>(...)</dt><dd><tt><a href="#Estudiante-clearMask">clearMask</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#Estudiante-close">close</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-contentsMargins"><strong>contentsMargins</strong></a>(...)</dt><dd><tt><a href="#Estudiante-contentsMargins">contentsMargins</a>(self)&nbsp;-&gt;&nbsp;QMargins</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-contentsRect"><strong>contentsRect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-contentsRect">contentsRect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-contextMenuPolicy"><strong>contextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-contextMenuPolicy">contextMenuPolicy</a>(self)&nbsp;-&gt;&nbsp;Qt.ContextMenuPolicy</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-createWindowContainer"><strong>createWindowContainer</strong></a>(...)</dt><dd><tt><a href="#Estudiante-createWindowContainer">createWindowContainer</a>(QWindow,&nbsp;parent:&nbsp;QWidget&nbsp;=&nbsp;None,&nbsp;flags:&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType]&nbsp;=&nbsp;0)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-cursor"><strong>cursor</strong></a>(...)</dt><dd><tt><a href="#Estudiante-cursor">cursor</a>(self)&nbsp;-&gt;&nbsp;QCursor</tt></dd></dl>
+
+<strong>customContextMenuRequested</strong> = &lt;unbound PYQT_SIGNAL customContextMenuRequested(QPoint)&gt;
+<dl><dt><a name="Estudiante-devType"><strong>devType</strong></a>(...)</dt><dd><tt><a href="#Estudiante-devType">devType</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-effectiveWinId"><strong>effectiveWinId</strong></a>(...)</dt><dd><tt><a href="#Estudiante-effectiveWinId">effectiveWinId</a>(self)&nbsp;-&gt;&nbsp;sip.voidptr</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-ensurePolished"><strong>ensurePolished</strong></a>(...)</dt><dd><tt><a href="#Estudiante-ensurePolished">ensurePolished</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-find"><strong>find</strong></a>(...)</dt><dd><tt><a href="#Estudiante-find">find</a>(sip.voidptr)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-focusPolicy"><strong>focusPolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-focusPolicy">focusPolicy</a>(self)&nbsp;-&gt;&nbsp;Qt.FocusPolicy</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-focusProxy"><strong>focusProxy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-focusProxy">focusProxy</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-focusWidget"><strong>focusWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-focusWidget">focusWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-font"><strong>font</strong></a>(...)</dt><dd><tt><a href="#Estudiante-font">font</a>(self)&nbsp;-&gt;&nbsp;QFont</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-fontInfo"><strong>fontInfo</strong></a>(...)</dt><dd><tt><a href="#Estudiante-fontInfo">fontInfo</a>(self)&nbsp;-&gt;&nbsp;QFontInfo</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-fontMetrics"><strong>fontMetrics</strong></a>(...)</dt><dd><tt><a href="#Estudiante-fontMetrics">fontMetrics</a>(self)&nbsp;-&gt;&nbsp;QFontMetrics</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-foregroundRole"><strong>foregroundRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-foregroundRole">foregroundRole</a>(self)&nbsp;-&gt;&nbsp;QPalette.ColorRole</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-frameGeometry"><strong>frameGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-frameGeometry">frameGeometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-frameSize"><strong>frameSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-frameSize">frameSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-geometry"><strong>geometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-geometry">geometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-getContentsMargins"><strong>getContentsMargins</strong></a>(...)</dt><dd><tt><a href="#Estudiante-getContentsMargins">getContentsMargins</a>(self)&nbsp;-&gt;&nbsp;Tuple[int,&nbsp;int,&nbsp;int,&nbsp;int]</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-grab"><strong>grab</strong></a>(...)</dt><dd><tt><a href="#Estudiante-grab">grab</a>(self,&nbsp;rectangle:&nbsp;QRect&nbsp;=&nbsp;QRect(QPoint(0,0),QSize(-1,-1)))&nbsp;-&gt;&nbsp;QPixmap</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-grabGesture"><strong>grabGesture</strong></a>(...)</dt><dd><tt><a href="#Estudiante-grabGesture">grabGesture</a>(self,&nbsp;Qt.GestureType,&nbsp;flags:&nbsp;Union[Qt.GestureFlags,&nbsp;Qt.GestureFlag]&nbsp;=&nbsp;Qt.GestureFlags())</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-grabKeyboard"><strong>grabKeyboard</strong></a>(...)</dt><dd><tt><a href="#Estudiante-grabKeyboard">grabKeyboard</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-grabMouse"><strong>grabMouse</strong></a>(...)</dt><dd><tt><a href="#Estudiante-grabMouse">grabMouse</a>(self)<br>
+<a href="#Estudiante-grabMouse">grabMouse</a>(self,&nbsp;Union[QCursor,&nbsp;Qt.CursorShape])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-grabShortcut"><strong>grabShortcut</strong></a>(...)</dt><dd><tt><a href="#Estudiante-grabShortcut">grabShortcut</a>(self,&nbsp;Union[QKeySequence,&nbsp;QKeySequence.StandardKey,&nbsp;str,&nbsp;int],&nbsp;context:&nbsp;Qt.ShortcutContext&nbsp;=&nbsp;Qt.WindowShortcut)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-graphicsEffect"><strong>graphicsEffect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-graphicsEffect">graphicsEffect</a>(self)&nbsp;-&gt;&nbsp;QGraphicsEffect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-graphicsProxyWidget"><strong>graphicsProxyWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-graphicsProxyWidget">graphicsProxyWidget</a>(self)&nbsp;-&gt;&nbsp;QGraphicsProxyWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-hasFocus"><strong>hasFocus</strong></a>(...)</dt><dd><tt><a href="#Estudiante-hasFocus">hasFocus</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-hasHeightForWidth"><strong>hasHeightForWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-hasHeightForWidth">hasHeightForWidth</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-hasMouseTracking"><strong>hasMouseTracking</strong></a>(...)</dt><dd><tt><a href="#Estudiante-hasMouseTracking">hasMouseTracking</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-hasTabletTracking"><strong>hasTabletTracking</strong></a>(...)</dt><dd><tt><a href="#Estudiante-hasTabletTracking">hasTabletTracking</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-height"><strong>height</strong></a>(...)</dt><dd><tt><a href="#Estudiante-height">height</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-heightForWidth"><strong>heightForWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-heightForWidth">heightForWidth</a>(self,&nbsp;int)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-hide"><strong>hide</strong></a>(...)</dt><dd><tt><a href="#Estudiante-hide">hide</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-inputMethodHints"><strong>inputMethodHints</strong></a>(...)</dt><dd><tt><a href="#Estudiante-inputMethodHints">inputMethodHints</a>(self)&nbsp;-&gt;&nbsp;Qt.InputMethodHints</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-inputMethodQuery"><strong>inputMethodQuery</strong></a>(...)</dt><dd><tt><a href="#Estudiante-inputMethodQuery">inputMethodQuery</a>(self,&nbsp;Qt.InputMethodQuery)&nbsp;-&gt;&nbsp;Any</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-insertAction"><strong>insertAction</strong></a>(...)</dt><dd><tt><a href="#Estudiante-insertAction">insertAction</a>(self,&nbsp;QAction,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-insertActions"><strong>insertActions</strong></a>(...)</dt><dd><tt><a href="#Estudiante-insertActions">insertActions</a>(self,&nbsp;QAction,&nbsp;Iterable[QAction])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isActiveWindow"><strong>isActiveWindow</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isActiveWindow">isActiveWindow</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isAncestorOf"><strong>isAncestorOf</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isAncestorOf">isAncestorOf</a>(self,&nbsp;QWidget)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isEnabled"><strong>isEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isEnabled">isEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isEnabledTo"><strong>isEnabledTo</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isEnabledTo">isEnabledTo</a>(self,&nbsp;QWidget)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isFullScreen"><strong>isFullScreen</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isFullScreen">isFullScreen</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isHidden"><strong>isHidden</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isHidden">isHidden</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isLeftToRight"><strong>isLeftToRight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isLeftToRight">isLeftToRight</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isMaximized"><strong>isMaximized</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isMaximized">isMaximized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isMinimized"><strong>isMinimized</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isMinimized">isMinimized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isModal"><strong>isModal</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isModal">isModal</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isRightToLeft"><strong>isRightToLeft</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isRightToLeft">isRightToLeft</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isVisible"><strong>isVisible</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isVisible">isVisible</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isVisibleTo"><strong>isVisibleTo</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isVisibleTo">isVisibleTo</a>(self,&nbsp;QWidget)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isWindow"><strong>isWindow</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isWindow">isWindow</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isWindowModified"><strong>isWindowModified</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isWindowModified">isWindowModified</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-keyboardGrabber"><strong>keyboardGrabber</strong></a>(...)</dt><dd><tt><a href="#Estudiante-keyboardGrabber">keyboardGrabber</a>()&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-layout"><strong>layout</strong></a>(...)</dt><dd><tt><a href="#Estudiante-layout">layout</a>(self)&nbsp;-&gt;&nbsp;QLayout</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-layoutDirection"><strong>layoutDirection</strong></a>(...)</dt><dd><tt><a href="#Estudiante-layoutDirection">layoutDirection</a>(self)&nbsp;-&gt;&nbsp;Qt.LayoutDirection</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-locale"><strong>locale</strong></a>(...)</dt><dd><tt><a href="#Estudiante-locale">locale</a>(self)&nbsp;-&gt;&nbsp;QLocale</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-lower"><strong>lower</strong></a>(...)</dt><dd><tt><a href="#Estudiante-lower">lower</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapFrom"><strong>mapFrom</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapFrom">mapFrom</a>(self,&nbsp;QWidget,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapFromGlobal"><strong>mapFromGlobal</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapFromGlobal">mapFromGlobal</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapFromParent"><strong>mapFromParent</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapFromParent">mapFromParent</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapTo"><strong>mapTo</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapTo">mapTo</a>(self,&nbsp;QWidget,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapToGlobal"><strong>mapToGlobal</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapToGlobal">mapToGlobal</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mapToParent"><strong>mapToParent</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mapToParent">mapToParent</a>(self,&nbsp;QPoint)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mask"><strong>mask</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mask">mask</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-maximumHeight"><strong>maximumHeight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-maximumHeight">maximumHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-maximumSize"><strong>maximumSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-maximumSize">maximumSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-maximumWidth"><strong>maximumWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-maximumWidth">maximumWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-minimumHeight"><strong>minimumHeight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-minimumHeight">minimumHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-minimumSize"><strong>minimumSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-minimumSize">minimumSize</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-minimumSizeHint"><strong>minimumSizeHint</strong></a>(...)</dt><dd><tt><a href="#Estudiante-minimumSizeHint">minimumSizeHint</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-minimumWidth"><strong>minimumWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-minimumWidth">minimumWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-mouseGrabber"><strong>mouseGrabber</strong></a>(...)</dt><dd><tt><a href="#Estudiante-mouseGrabber">mouseGrabber</a>()&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-move"><strong>move</strong></a>(...)</dt><dd><tt><a href="#Estudiante-move">move</a>(self,&nbsp;QPoint)<br>
+<a href="#Estudiante-move">move</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-nativeParentWidget"><strong>nativeParentWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-nativeParentWidget">nativeParentWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-nextInFocusChain"><strong>nextInFocusChain</strong></a>(...)</dt><dd><tt><a href="#Estudiante-nextInFocusChain">nextInFocusChain</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-normalGeometry"><strong>normalGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-normalGeometry">normalGeometry</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-overrideWindowFlags"><strong>overrideWindowFlags</strong></a>(...)</dt><dd><tt><a href="#Estudiante-overrideWindowFlags">overrideWindowFlags</a>(self,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-overrideWindowState"><strong>overrideWindowState</strong></a>(...)</dt><dd><tt><a href="#Estudiante-overrideWindowState">overrideWindowState</a>(self,&nbsp;Union[Qt.WindowStates,&nbsp;Qt.WindowState])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-paintEngine"><strong>paintEngine</strong></a>(...)</dt><dd><tt><a href="#Estudiante-paintEngine">paintEngine</a>(self)&nbsp;-&gt;&nbsp;QPaintEngine</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-palette"><strong>palette</strong></a>(...)</dt><dd><tt><a href="#Estudiante-palette">palette</a>(self)&nbsp;-&gt;&nbsp;QPalette</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-parentWidget"><strong>parentWidget</strong></a>(...)</dt><dd><tt><a href="#Estudiante-parentWidget">parentWidget</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-pos"><strong>pos</strong></a>(...)</dt><dd><tt><a href="#Estudiante-pos">pos</a>(self)&nbsp;-&gt;&nbsp;QPoint</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-previousInFocusChain"><strong>previousInFocusChain</strong></a>(...)</dt><dd><tt><a href="#Estudiante-previousInFocusChain">previousInFocusChain</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-raise_"><strong>raise_</strong></a>(...)</dt><dd><tt><a href="#Estudiante-raise_">raise_</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-rect"><strong>rect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-rect">rect</a>(self)&nbsp;-&gt;&nbsp;QRect</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-releaseKeyboard"><strong>releaseKeyboard</strong></a>(...)</dt><dd><tt><a href="#Estudiante-releaseKeyboard">releaseKeyboard</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-releaseMouse"><strong>releaseMouse</strong></a>(...)</dt><dd><tt><a href="#Estudiante-releaseMouse">releaseMouse</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-releaseShortcut"><strong>releaseShortcut</strong></a>(...)</dt><dd><tt><a href="#Estudiante-releaseShortcut">releaseShortcut</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-removeAction"><strong>removeAction</strong></a>(...)</dt><dd><tt><a href="#Estudiante-removeAction">removeAction</a>(self,&nbsp;QAction)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-render"><strong>render</strong></a>(...)</dt><dd><tt><a href="#Estudiante-render">render</a>(self,&nbsp;QPaintDevice,&nbsp;targetOffset:&nbsp;QPoint&nbsp;=&nbsp;QPoint(),&nbsp;sourceRegion:&nbsp;QRegion&nbsp;=&nbsp;QRegion(),&nbsp;flags:&nbsp;Union[QWidget.RenderFlags,&nbsp;QWidget.RenderFlag]&nbsp;=&nbsp;QWidget.<a href="#Estudiante-RenderFlags">RenderFlags</a>(QWidget.DrawWindowBackground|QWidget.DrawChildren))<br>
+<a href="#Estudiante-render">render</a>(self,&nbsp;QPainter,&nbsp;targetOffset:&nbsp;QPoint&nbsp;=&nbsp;QPoint(),&nbsp;sourceRegion:&nbsp;QRegion&nbsp;=&nbsp;QRegion(),&nbsp;flags:&nbsp;Union[QWidget.RenderFlags,&nbsp;QWidget.RenderFlag]&nbsp;=&nbsp;QWidget.<a href="#Estudiante-RenderFlags">RenderFlags</a>(QWidget.DrawWindowBackground|QWidget.DrawChildren))</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-repaint"><strong>repaint</strong></a>(...)</dt><dd><tt><a href="#Estudiante-repaint">repaint</a>(self)<br>
+<a href="#Estudiante-repaint">repaint</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-repaint">repaint</a>(self,&nbsp;QRect)<br>
+<a href="#Estudiante-repaint">repaint</a>(self,&nbsp;QRegion)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-resize"><strong>resize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-resize">resize</a>(self,&nbsp;QSize)<br>
+<a href="#Estudiante-resize">resize</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-restoreGeometry"><strong>restoreGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-restoreGeometry">restoreGeometry</a>(self,&nbsp;Union[QByteArray,&nbsp;bytes,&nbsp;bytearray])&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-saveGeometry"><strong>saveGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-saveGeometry">saveGeometry</a>(self)&nbsp;-&gt;&nbsp;QByteArray</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-scroll"><strong>scroll</strong></a>(...)</dt><dd><tt><a href="#Estudiante-scroll">scroll</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-scroll">scroll</a>(self,&nbsp;int,&nbsp;int,&nbsp;QRect)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setAcceptDrops"><strong>setAcceptDrops</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAcceptDrops">setAcceptDrops</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setAccessibleDescription"><strong>setAccessibleDescription</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAccessibleDescription">setAccessibleDescription</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setAccessibleName"><strong>setAccessibleName</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAccessibleName">setAccessibleName</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setAttribute"><strong>setAttribute</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAttribute">setAttribute</a>(self,&nbsp;Qt.WidgetAttribute,&nbsp;on:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setAutoFillBackground"><strong>setAutoFillBackground</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setAutoFillBackground">setAutoFillBackground</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setBackgroundRole"><strong>setBackgroundRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setBackgroundRole">setBackgroundRole</a>(self,&nbsp;QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setBaseSize"><strong>setBaseSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setBaseSize">setBaseSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-setBaseSize">setBaseSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setContentsMargins"><strong>setContentsMargins</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setContentsMargins">setContentsMargins</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-setContentsMargins">setContentsMargins</a>(self,&nbsp;QMargins)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setContextMenuPolicy"><strong>setContextMenuPolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setContextMenuPolicy">setContextMenuPolicy</a>(self,&nbsp;Qt.ContextMenuPolicy)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setCursor"><strong>setCursor</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setCursor">setCursor</a>(self,&nbsp;Union[QCursor,&nbsp;Qt.CursorShape])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setDisabled"><strong>setDisabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setDisabled">setDisabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setEnabled"><strong>setEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setEnabled">setEnabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFixedHeight"><strong>setFixedHeight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFixedHeight">setFixedHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFixedSize"><strong>setFixedSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFixedSize">setFixedSize</a>(self,&nbsp;QSize)<br>
+<a href="#Estudiante-setFixedSize">setFixedSize</a>(self,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFixedWidth"><strong>setFixedWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFixedWidth">setFixedWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFocus"><strong>setFocus</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFocus">setFocus</a>(self)<br>
+<a href="#Estudiante-setFocus">setFocus</a>(self,&nbsp;Qt.FocusReason)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFocusPolicy"><strong>setFocusPolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFocusPolicy">setFocusPolicy</a>(self,&nbsp;Qt.FocusPolicy)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFocusProxy"><strong>setFocusProxy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFocusProxy">setFocusProxy</a>(self,&nbsp;QWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setFont"><strong>setFont</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setFont">setFont</a>(self,&nbsp;QFont)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setForegroundRole"><strong>setForegroundRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setForegroundRole">setForegroundRole</a>(self,&nbsp;QPalette.ColorRole)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setGeometry"><strong>setGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setGeometry">setGeometry</a>(self,&nbsp;QRect)<br>
+<a href="#Estudiante-setGeometry">setGeometry</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setGraphicsEffect"><strong>setGraphicsEffect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setGraphicsEffect">setGraphicsEffect</a>(self,&nbsp;QGraphicsEffect)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setHidden"><strong>setHidden</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setHidden">setHidden</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setInputMethodHints"><strong>setInputMethodHints</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setInputMethodHints">setInputMethodHints</a>(self,&nbsp;Union[Qt.InputMethodHints,&nbsp;Qt.InputMethodHint])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setLayout"><strong>setLayout</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setLayout">setLayout</a>(self,&nbsp;QLayout)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setLayoutDirection"><strong>setLayoutDirection</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setLayoutDirection">setLayoutDirection</a>(self,&nbsp;Qt.LayoutDirection)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setLocale"><strong>setLocale</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setLocale">setLocale</a>(self,&nbsp;QLocale)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMask"><strong>setMask</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMask">setMask</a>(self,&nbsp;QBitmap)<br>
+<a href="#Estudiante-setMask">setMask</a>(self,&nbsp;QRegion)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMaximumHeight"><strong>setMaximumHeight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMaximumHeight">setMaximumHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMaximumSize"><strong>setMaximumSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMaximumSize">setMaximumSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-setMaximumSize">setMaximumSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMaximumWidth"><strong>setMaximumWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMaximumWidth">setMaximumWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMinimumHeight"><strong>setMinimumHeight</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMinimumHeight">setMinimumHeight</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMinimumSize"><strong>setMinimumSize</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMinimumSize">setMinimumSize</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-setMinimumSize">setMinimumSize</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMinimumWidth"><strong>setMinimumWidth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMinimumWidth">setMinimumWidth</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setMouseTracking"><strong>setMouseTracking</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setMouseTracking">setMouseTracking</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setPalette"><strong>setPalette</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setPalette">setPalette</a>(self,&nbsp;QPalette)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setParent"><strong>setParent</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setParent">setParent</a>(self,&nbsp;QWidget)<br>
+<a href="#Estudiante-setParent">setParent</a>(self,&nbsp;QWidget,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setShortcutAutoRepeat"><strong>setShortcutAutoRepeat</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setShortcutAutoRepeat">setShortcutAutoRepeat</a>(self,&nbsp;int,&nbsp;enabled:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setShortcutEnabled"><strong>setShortcutEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setShortcutEnabled">setShortcutEnabled</a>(self,&nbsp;int,&nbsp;enabled:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setSizeIncrement"><strong>setSizeIncrement</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setSizeIncrement">setSizeIncrement</a>(self,&nbsp;int,&nbsp;int)<br>
+<a href="#Estudiante-setSizeIncrement">setSizeIncrement</a>(self,&nbsp;QSize)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setSizePolicy"><strong>setSizePolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setSizePolicy">setSizePolicy</a>(self,&nbsp;QSizePolicy)<br>
+<a href="#Estudiante-setSizePolicy">setSizePolicy</a>(self,&nbsp;QSizePolicy.Policy,&nbsp;QSizePolicy.Policy)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setStatusTip"><strong>setStatusTip</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setStatusTip">setStatusTip</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setStyle"><strong>setStyle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setStyle">setStyle</a>(self,&nbsp;QStyle)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setStyleSheet"><strong>setStyleSheet</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setStyleSheet">setStyleSheet</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setTabOrder"><strong>setTabOrder</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setTabOrder">setTabOrder</a>(QWidget,&nbsp;QWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setTabletTracking"><strong>setTabletTracking</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setTabletTracking">setTabletTracking</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setToolTip"><strong>setToolTip</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setToolTip">setToolTip</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setToolTipDuration"><strong>setToolTipDuration</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setToolTipDuration">setToolTipDuration</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setUpdatesEnabled"><strong>setUpdatesEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setUpdatesEnabled">setUpdatesEnabled</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setVisible"><strong>setVisible</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setVisible">setVisible</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWhatsThis"><strong>setWhatsThis</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWhatsThis">setWhatsThis</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowFilePath"><strong>setWindowFilePath</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowFilePath">setWindowFilePath</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowFlag"><strong>setWindowFlag</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowFlag">setWindowFlag</a>(self,&nbsp;Qt.WindowType,&nbsp;on:&nbsp;bool&nbsp;=&nbsp;True)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowFlags"><strong>setWindowFlags</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowFlags">setWindowFlags</a>(self,&nbsp;Union[Qt.WindowFlags,&nbsp;Qt.WindowType])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowIcon"><strong>setWindowIcon</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowIcon">setWindowIcon</a>(self,&nbsp;QIcon)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowIconText"><strong>setWindowIconText</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowIconText">setWindowIconText</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowModality"><strong>setWindowModality</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowModality">setWindowModality</a>(self,&nbsp;Qt.WindowModality)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowModified"><strong>setWindowModified</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowModified">setWindowModified</a>(self,&nbsp;bool)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowOpacity"><strong>setWindowOpacity</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowOpacity">setWindowOpacity</a>(self,&nbsp;float)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowRole"><strong>setWindowRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowRole">setWindowRole</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowState"><strong>setWindowState</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowState">setWindowState</a>(self,&nbsp;Union[Qt.WindowStates,&nbsp;Qt.WindowState])</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setWindowTitle"><strong>setWindowTitle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setWindowTitle">setWindowTitle</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-show"><strong>show</strong></a>(...)</dt><dd><tt><a href="#Estudiante-show">show</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-showFullScreen"><strong>showFullScreen</strong></a>(...)</dt><dd><tt><a href="#Estudiante-showFullScreen">showFullScreen</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-showMaximized"><strong>showMaximized</strong></a>(...)</dt><dd><tt><a href="#Estudiante-showMaximized">showMaximized</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-showMinimized"><strong>showMinimized</strong></a>(...)</dt><dd><tt><a href="#Estudiante-showMinimized">showMinimized</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-showNormal"><strong>showNormal</strong></a>(...)</dt><dd><tt><a href="#Estudiante-showNormal">showNormal</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-size"><strong>size</strong></a>(...)</dt><dd><tt><a href="#Estudiante-size">size</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-sizeHint"><strong>sizeHint</strong></a>(...)</dt><dd><tt><a href="#Estudiante-sizeHint">sizeHint</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-sizeIncrement"><strong>sizeIncrement</strong></a>(...)</dt><dd><tt><a href="#Estudiante-sizeIncrement">sizeIncrement</a>(self)&nbsp;-&gt;&nbsp;QSize</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-sizePolicy"><strong>sizePolicy</strong></a>(...)</dt><dd><tt><a href="#Estudiante-sizePolicy">sizePolicy</a>(self)&nbsp;-&gt;&nbsp;QSizePolicy</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-stackUnder"><strong>stackUnder</strong></a>(...)</dt><dd><tt><a href="#Estudiante-stackUnder">stackUnder</a>(self,&nbsp;QWidget)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-statusTip"><strong>statusTip</strong></a>(...)</dt><dd><tt><a href="#Estudiante-statusTip">statusTip</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-style"><strong>style</strong></a>(...)</dt><dd><tt><a href="#Estudiante-style">style</a>(self)&nbsp;-&gt;&nbsp;QStyle</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-styleSheet"><strong>styleSheet</strong></a>(...)</dt><dd><tt><a href="#Estudiante-styleSheet">styleSheet</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-testAttribute"><strong>testAttribute</strong></a>(...)</dt><dd><tt><a href="#Estudiante-testAttribute">testAttribute</a>(self,&nbsp;Qt.WidgetAttribute)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-toolTip"><strong>toolTip</strong></a>(...)</dt><dd><tt><a href="#Estudiante-toolTip">toolTip</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-toolTipDuration"><strong>toolTipDuration</strong></a>(...)</dt><dd><tt><a href="#Estudiante-toolTipDuration">toolTipDuration</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-underMouse"><strong>underMouse</strong></a>(...)</dt><dd><tt><a href="#Estudiante-underMouse">underMouse</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-ungrabGesture"><strong>ungrabGesture</strong></a>(...)</dt><dd><tt><a href="#Estudiante-ungrabGesture">ungrabGesture</a>(self,&nbsp;Qt.GestureType)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-unsetCursor"><strong>unsetCursor</strong></a>(...)</dt><dd><tt><a href="#Estudiante-unsetCursor">unsetCursor</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-unsetLayoutDirection"><strong>unsetLayoutDirection</strong></a>(...)</dt><dd><tt><a href="#Estudiante-unsetLayoutDirection">unsetLayoutDirection</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-unsetLocale"><strong>unsetLocale</strong></a>(...)</dt><dd><tt><a href="#Estudiante-unsetLocale">unsetLocale</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-update"><strong>update</strong></a>(...)</dt><dd><tt><a href="#Estudiante-update">update</a>(self)<br>
+<a href="#Estudiante-update">update</a>(self,&nbsp;QRect)<br>
+<a href="#Estudiante-update">update</a>(self,&nbsp;QRegion)<br>
+<a href="#Estudiante-update">update</a>(self,&nbsp;int,&nbsp;int,&nbsp;int,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-updateGeometry"><strong>updateGeometry</strong></a>(...)</dt><dd><tt><a href="#Estudiante-updateGeometry">updateGeometry</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-updatesEnabled"><strong>updatesEnabled</strong></a>(...)</dt><dd><tt><a href="#Estudiante-updatesEnabled">updatesEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-visibleRegion"><strong>visibleRegion</strong></a>(...)</dt><dd><tt><a href="#Estudiante-visibleRegion">visibleRegion</a>(self)&nbsp;-&gt;&nbsp;QRegion</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-whatsThis"><strong>whatsThis</strong></a>(...)</dt><dd><tt><a href="#Estudiante-whatsThis">whatsThis</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-width"><strong>width</strong></a>(...)</dt><dd><tt><a href="#Estudiante-width">width</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-winId"><strong>winId</strong></a>(...)</dt><dd><tt><a href="#Estudiante-winId">winId</a>(self)&nbsp;-&gt;&nbsp;sip.voidptr</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-window"><strong>window</strong></a>(...)</dt><dd><tt><a href="#Estudiante-window">window</a>(self)&nbsp;-&gt;&nbsp;QWidget</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowFilePath"><strong>windowFilePath</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowFilePath">windowFilePath</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowFlags"><strong>windowFlags</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowFlags">windowFlags</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowFlags</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowHandle"><strong>windowHandle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowHandle">windowHandle</a>(self)&nbsp;-&gt;&nbsp;QWindow</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowIcon"><strong>windowIcon</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowIcon">windowIcon</a>(self)&nbsp;-&gt;&nbsp;QIcon</tt></dd></dl>
+
+<strong>windowIconChanged</strong> = &lt;unbound PYQT_SIGNAL windowIconChanged(QIcon)&gt;
+<dl><dt><a name="Estudiante-windowIconText"><strong>windowIconText</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowIconText">windowIconText</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>windowIconTextChanged</strong> = &lt;unbound PYQT_SIGNAL windowIconTextChanged(QString)&gt;
+<dl><dt><a name="Estudiante-windowModality"><strong>windowModality</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowModality">windowModality</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowModality</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowOpacity"><strong>windowOpacity</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowOpacity">windowOpacity</a>(self)&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowRole"><strong>windowRole</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowRole">windowRole</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowState"><strong>windowState</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowState">windowState</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowStates</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-windowTitle"><strong>windowTitle</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowTitle">windowTitle</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>windowTitleChanged</strong> = &lt;unbound PYQT_SIGNAL windowTitleChanged(QString)&gt;
+<dl><dt><a name="Estudiante-windowType"><strong>windowType</strong></a>(...)</dt><dd><tt><a href="#Estudiante-windowType">windowType</a>(self)&nbsp;-&gt;&nbsp;Qt.WindowType</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-x"><strong>x</strong></a>(...)</dt><dd><tt><a href="#Estudiante-x">x</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-y"><strong>y</strong></a>(...)</dt><dd><tt><a href="#Estudiante-y">y</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtWidgets.html#QWidget">PyQt5.QtWidgets.QWidget</a>:<br>
+<dl><dt><strong>DrawChildren</strong> = 2</dl>
+
+<dl><dt><strong>DrawWindowBackground</strong> = 1</dl>
+
+<dl><dt><strong>IgnoreMask</strong> = 4</dl>
+
+<dl><dt><strong>RenderFlag</strong> = &lt;class 'PyQt5.QtWidgets.QWidget.RenderFlag'&gt;</dl>
+
+<dl><dt><strong>RenderFlags</strong> = &lt;class 'PyQt5.QtWidgets.RenderFlags'&gt;<dd><tt>QWidget.<a href="#Estudiante-RenderFlags">RenderFlags</a>()<br>
+QWidget.<a href="#Estudiante-RenderFlags">RenderFlags</a>(Union[QWidget.RenderFlags,&nbsp;QWidget.RenderFlag])<br>
+QWidget.<a href="#Estudiante-RenderFlags">RenderFlags</a>(QWidget.RenderFlags)</tt></dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><a name="Estudiante-__getattr__"><strong>__getattr__</strong></a>(...)</dt><dd><tt><a href="#Estudiante-__getattr__">__getattr__</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-blockSignals"><strong>blockSignals</strong></a>(...)</dt><dd><tt><a href="#Estudiante-blockSignals">blockSignals</a>(self,&nbsp;bool)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-children"><strong>children</strong></a>(...)</dt><dd><tt><a href="#Estudiante-children">children</a>(self)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-deleteLater"><strong>deleteLater</strong></a>(...)</dt><dd><tt><a href="#Estudiante-deleteLater">deleteLater</a>(self)</tt></dd></dl>
+
+<strong>destroyed</strong> = &lt;unbound PYQT_SIGNAL destroyed(QObject*)&gt;
+<dl><dt><a name="Estudiante-disconnect"><strong>disconnect</strong></a>(...)</dt><dd><tt><a href="#Estudiante-disconnect">disconnect</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-dumpObjectInfo"><strong>dumpObjectInfo</strong></a>(...)</dt><dd><tt><a href="#Estudiante-dumpObjectInfo">dumpObjectInfo</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-dumpObjectTree"><strong>dumpObjectTree</strong></a>(...)</dt><dd><tt><a href="#Estudiante-dumpObjectTree">dumpObjectTree</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-dynamicPropertyNames"><strong>dynamicPropertyNames</strong></a>(...)</dt><dd><tt><a href="#Estudiante-dynamicPropertyNames">dynamicPropertyNames</a>(self)&nbsp;-&gt;&nbsp;object</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-eventFilter"><strong>eventFilter</strong></a>(...)</dt><dd><tt><a href="#Estudiante-eventFilter">eventFilter</a>(self,&nbsp;QObject,&nbsp;QEvent)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-findChild"><strong>findChild</strong></a>(...)</dt><dd><tt><a href="#Estudiante-findChild">findChild</a>(self,&nbsp;type,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;QObject<br>
+<a href="#Estudiante-findChild">findChild</a>(self,&nbsp;Tuple,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-findChildren"><strong>findChildren</strong></a>(...)</dt><dd><tt><a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;QRegExp,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;QRegExp,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;type,&nbsp;QRegularExpression,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]<br>
+<a href="#Estudiante-findChildren">findChildren</a>(self,&nbsp;Tuple,&nbsp;QRegularExpression,&nbsp;options:&nbsp;Union[Qt.FindChildOptions,&nbsp;Qt.FindChildOption]&nbsp;=&nbsp;Qt.FindChildrenRecursively)&nbsp;-&gt;&nbsp;List[QObject]</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-inherits"><strong>inherits</strong></a>(...)</dt><dd><tt><a href="#Estudiante-inherits">inherits</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-installEventFilter"><strong>installEventFilter</strong></a>(...)</dt><dd><tt><a href="#Estudiante-installEventFilter">installEventFilter</a>(self,&nbsp;QObject)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isWidgetType"><strong>isWidgetType</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isWidgetType">isWidgetType</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-isWindowType"><strong>isWindowType</strong></a>(...)</dt><dd><tt><a href="#Estudiante-isWindowType">isWindowType</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-killTimer"><strong>killTimer</strong></a>(...)</dt><dd><tt><a href="#Estudiante-killTimer">killTimer</a>(self,&nbsp;int)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-metaObject"><strong>metaObject</strong></a>(...)</dt><dd><tt><a href="#Estudiante-metaObject">metaObject</a>(self)&nbsp;-&gt;&nbsp;QMetaObject</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-moveToThread"><strong>moveToThread</strong></a>(...)</dt><dd><tt><a href="#Estudiante-moveToThread">moveToThread</a>(self,&nbsp;QThread)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-objectName"><strong>objectName</strong></a>(...)</dt><dd><tt><a href="#Estudiante-objectName">objectName</a>(self)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<strong>objectNameChanged</strong> = &lt;unbound PYQT_SIGNAL objectNameChanged(QString)&gt;
+<dl><dt><a name="Estudiante-parent"><strong>parent</strong></a>(...)</dt><dd><tt><a href="#Estudiante-parent">parent</a>(self)&nbsp;-&gt;&nbsp;QObject</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-property"><strong>property</strong></a>(...)</dt><dd><tt><a href="#Estudiante-property">property</a>(self,&nbsp;str)&nbsp;-&gt;&nbsp;Any</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-pyqtConfigure"><strong>pyqtConfigure</strong></a>(...)</dt><dd><tt>QObject.<a href="#Estudiante-pyqtConfigure">pyqtConfigure</a>(...)<br>
+&nbsp;<br>
+Each&nbsp;keyword&nbsp;argument&nbsp;is&nbsp;either&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;Qt&nbsp;property&nbsp;or&nbsp;a&nbsp;Qt&nbsp;signal.<br>
+For&nbsp;properties&nbsp;the&nbsp;property&nbsp;is&nbsp;set&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;of&nbsp;an<br>
+appropriate&nbsp;type.<br>
+For&nbsp;signals&nbsp;the&nbsp;signal&nbsp;is&nbsp;connected&nbsp;to&nbsp;the&nbsp;given&nbsp;value&nbsp;which&nbsp;should&nbsp;be&nbsp;a<br>
+callable.</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-removeEventFilter"><strong>removeEventFilter</strong></a>(...)</dt><dd><tt><a href="#Estudiante-removeEventFilter">removeEventFilter</a>(self,&nbsp;QObject)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setObjectName"><strong>setObjectName</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setObjectName">setObjectName</a>(self,&nbsp;str)</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-setProperty"><strong>setProperty</strong></a>(...)</dt><dd><tt><a href="#Estudiante-setProperty">setProperty</a>(self,&nbsp;str,&nbsp;Any)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-signalsBlocked"><strong>signalsBlocked</strong></a>(...)</dt><dd><tt><a href="#Estudiante-signalsBlocked">signalsBlocked</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-startTimer"><strong>startTimer</strong></a>(...)</dt><dd><tt><a href="#Estudiante-startTimer">startTimer</a>(self,&nbsp;int,&nbsp;timerType:&nbsp;Qt.TimerType&nbsp;=&nbsp;Qt.CoarseTimer)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-thread"><strong>thread</strong></a>(...)</dt><dd><tt><a href="#Estudiante-thread">thread</a>(self)&nbsp;-&gt;&nbsp;QThread</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-tr"><strong>tr</strong></a>(...)</dt><dd><tt><a href="#Estudiante-tr">tr</a>(self,&nbsp;str,&nbsp;disambiguation:&nbsp;str&nbsp;=&nbsp;None,&nbsp;n:&nbsp;int&nbsp;=&nbsp;-1)&nbsp;-&gt;&nbsp;str</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtCore.html#QObject">PyQt5.QtCore.QObject</a>:<br>
+<dl><dt><strong>staticMetaObject</strong> = &lt;PyQt5.QtCore.QMetaObject object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a>:<br>
+<dl><dt><a name="Estudiante-colorCount"><strong>colorCount</strong></a>(...)</dt><dd><tt><a href="#Estudiante-colorCount">colorCount</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-depth"><strong>depth</strong></a>(...)</dt><dd><tt><a href="#Estudiante-depth">depth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-devicePixelRatio"><strong>devicePixelRatio</strong></a>(...)</dt><dd><tt><a href="#Estudiante-devicePixelRatio">devicePixelRatio</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-devicePixelRatioF"><strong>devicePixelRatioF</strong></a>(...)</dt><dd><tt><a href="#Estudiante-devicePixelRatioF">devicePixelRatioF</a>(self)&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-devicePixelRatioFScale"><strong>devicePixelRatioFScale</strong></a>(...)</dt><dd><tt><a href="#Estudiante-devicePixelRatioFScale">devicePixelRatioFScale</a>()&nbsp;-&gt;&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-heightMM"><strong>heightMM</strong></a>(...)</dt><dd><tt><a href="#Estudiante-heightMM">heightMM</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-logicalDpiX"><strong>logicalDpiX</strong></a>(...)</dt><dd><tt><a href="#Estudiante-logicalDpiX">logicalDpiX</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-logicalDpiY"><strong>logicalDpiY</strong></a>(...)</dt><dd><tt><a href="#Estudiante-logicalDpiY">logicalDpiY</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-paintingActive"><strong>paintingActive</strong></a>(...)</dt><dd><tt><a href="#Estudiante-paintingActive">paintingActive</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-physicalDpiX"><strong>physicalDpiX</strong></a>(...)</dt><dd><tt><a href="#Estudiante-physicalDpiX">physicalDpiX</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-physicalDpiY"><strong>physicalDpiY</strong></a>(...)</dt><dd><tt><a href="#Estudiante-physicalDpiY">physicalDpiY</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Estudiante-widthMM"><strong>widthMM</strong></a>(...)</dt><dd><tt><a href="#Estudiante-widthMM">widthMM</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PyQt5.QtGui.html#QPaintDevice">PyQt5.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>PaintDeviceMetric</strong> = &lt;class 'PyQt5.QtGui.QPaintDevice.PaintDeviceMetric'&gt;</dl>
+
+<dl><dt><strong>PdmDepth</strong> = 6</dl>
+
+<dl><dt><strong>PdmDevicePixelRatio</strong> = 11</dl>
+
+<dl><dt><strong>PdmDevicePixelRatioScaled</strong> = 12</dl>
+
+<dl><dt><strong>PdmDpiX</strong> = 7</dl>
+
+<dl><dt><strong>PdmDpiY</strong> = 8</dl>
+
+<dl><dt><strong>PdmHeight</strong> = 2</dl>
+
+<dl><dt><strong>PdmHeightMM</strong> = 4</dl>
+
+<dl><dt><strong>PdmNumColors</strong> = 5</dl>
+
+<dl><dt><strong>PdmPhysicalDpiX</strong> = 9</dl>
+
+<dl><dt><strong>PdmPhysicalDpiY</strong> = 10</dl>
+
+<dl><dt><strong>PdmWidth</strong> = 1</dl>
+
+<dl><dt><strong>PdmWidthMM</strong> = 3</dl>
+
+<hr>
+Methods inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><a name="Estudiante-__new__"><strong>__new__</strong></a>(*args, **kwargs)<font color="#909090"><font face="helvetica, arial"> from <a href="sip.html#wrappertype">sip.wrappertype</a></font></font></dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="sip.html#simplewrapper">sip.simplewrapper</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<hr>
+Methods inherited from builtins.Ui_Fondo:<br>
+<dl><dt><a name="Estudiante-retranslateUi"><strong>retranslateUi</strong></a>(self, Fondo)</dt></dl>
+
+<dl><dt><a name="Estudiante-setupUi"><strong>setupUi</strong></a>(self, Fondo)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>qtCreatorFile</strong> = 'diseño.ui'</td></tr></table>
+</body></html>
