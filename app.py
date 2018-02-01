@@ -235,7 +235,7 @@ if __name__ == "__main__":
 	window.show()
 	sys.exit(app.exec_())
 
-
+#Validar cédula, revisar
 def verificar(nro):
     l = len(nro)
     if l == 10 or l == 13: # verificar la longitud correcta
