@@ -60,7 +60,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.con.close()
 
 	def registrarEmpleado(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', 'anlecap17')
 		self.con = psycopg2.connect(conn_string)
 		self.cursor = self.con.cursor()
 		self.id = self.txtID.text()
@@ -87,7 +87,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.ciudad = str(self.txtCiudad.text())
 		if  self.btnGuardar.text() == 'Guardar':
 			self.guardarImagen()
-			self.verificar()
+			#self.verificar()
 			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
 				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
 				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
@@ -95,6 +95,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 				[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
 				self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
 				self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
+			QtWidgets.QMessageBox.information(self, 'Información', 'Datos registrados con éxito', QtWidgets.QMessageBox.Ok)
 			self.con.commit()
 			self.cursor.close()
 			self.con.close()
