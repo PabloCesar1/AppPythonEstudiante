@@ -48,6 +48,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.listaEstudiantes.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
 		self.btnEliminar.setEnabled(False)
 		conexionDB(self) # Conexión a la base de datos creada en postgres
+		self.conectar()
 		self.mostrarEstudiantes()
 
 	def closeEvent(self, event):
@@ -57,7 +58,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 			event.accept()
 		else: event.ignore()
 		
-	def conexionDB(self):
+	def conectar(self):
 		"""Este metodo nos permite la conexion a la base de datos interna"""
 		self.con = sqlite3.connect("./database/estudiantes.bd") # Conexion a la base de datos
 		self.cursor = self.con.cursor()
