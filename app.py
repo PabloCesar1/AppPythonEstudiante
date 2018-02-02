@@ -10,14 +10,12 @@ import datetime
 import cv2 # Descargado opencv-python
 from PyQt5 import uic, QtWidgets, QtGui #importamos uic y QtWidgets desde el modulo PyQt5
 from random import randint
-from conexion import conexionDB
+import psycopg2 # Descargado
 
 
-qtCreatorFile = "diseño.ui" # Nombre del archivo aquí.
-if not os.path.exists('database'):
-	os.makedirs('database')
-if not os.path.exists('fotos'):
-	os.makedirs('fotos')
+qtCreatorFile = "diseño.ui"
+if not os.path.exists('database'): os.makedirs('database')
+if not os.path.exists('fotos'): os.makedirs('fotos')
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile) # usammos loadUiType para cargar el diseño de qt creator
 
@@ -39,153 +37,79 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.txtCelularRecom.setValidator(self.soloNumeros)
 		###############################################
 		self.btnBuscarImg.clicked.connect(self.buscarImagen) # evento producido cuando se selecciona un elemento
-		self.btnGuardar.clicked.connect(self.registrarEstudiante) # Id del boton conectado a la funcion guardarCliente
-		self.btnBuscar.clicked.connect(self.buscarEstudiante) # Id del boton conectado a la funcion guardarCliente
-		self.btnLimpiar.clicked.connect(self.borrarCampos) # Id del boton conectado a la funcion guardarCliente
-		self.btnEliminar.clicked.connect(self.eliminarEstudiante) # Id del boton conectado a la funcion guardarCliente
-		self.listaEstudiantes.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
-		self.listaEstudiantes.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
-		self.listaEstudiantes.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
-		self.btnEliminar.setEnabled(False)
-		conexionDB(self) # Conexión a la base de datos creada en postgres
-		self.mostrarEstudiantes()
-
-	def closeEvent(self, event):
-		"""Este metodo nos permite confirmar el cierre de una ventana"""
-		cerrar = QtWidgets.QMessageBox.question(self, "Salir", "¿Seguro que quieres salir de la aplicación?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-		if cerrar == QtWidgets.QMessageBox.Yes:
-			event.accept()
-		else: event.ignore()
+		self.btnGuardar.clicked.connect(self.registrarEmpleado) # Id del boton conectado a la funcion guardarCliente
+		#self.btnBuscar.clicked.connect(self.buscarEstudiante) # Id del boton conectado a la funcion guardarCliente
+		#self.btnLimpiar.clicked.connect(self.borrarCampos) # Id del boton conectado a la funcion guardarCliente
+		#self.btnEliminar.clicked.connect(self.eliminarEstudiante) # Id del boton conectado a la funcion guardarCliente
+		#self.listaEstudiantes.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
+		#self.listaEstudiantes.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
+		#self.listaEstudiantes.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
+		#self.btnEliminar.setEnabled(False)
+		 # Conexión a la base de datos creada en postgres
+		self.conexionDB()
+		#self.mostrarEstudiantes()
 		
 	def conexionDB(self):
-		"""Este metodo nos permite la conexion a la base de datos interna"""
-		self.con = sqlite3.connect("./database/estudiantes.bd") # Conexion a la base de datos
-		self.cursor = self.con.cursor()
-		self.cursor.execute("CREATE TABLE IF NOT EXISTS estudiante(id INTEGER PRIMARY KEY AUTOINCREMENT, cedula text not null, nombres text not null, apellidos text not null, fecha text not null, telefono text not null, ciudad text not null, nivel text not null, foto text)")
-		self.con.commit()
+		host = 'localhost'
+		user = 'admin'
+		dbname = 'DB_Empleados'
+		password = 'userDB'
+		try:
+			conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+			self.con = psycopg2.connect(conn_string)
+			print("Conexión establecida")
+			#self.con.close() # si da error eliminar
+			return True
+		except Exception as e:
+			QtWidgets.QMessageBox.information(self, 'Información', 'Error al conectarse a la base de datos', QtWidgets.QMessageBox.Ok)
+			return False
 
-	def registrarEstudiante(self):
-		"""Este metodo nos permite registrar y modificar estudiantes en la base de datos"""
-		self.con = sqlite3.connect("./database/estudiantes.bd")
-		self.cursor = self.con.cursor()
-		self.id = self.txtID.text()
-		self.cedula = str(self.txtCedula.text())
-		self.nombres = str(self.txtNombres.text())
-		self.apellidos = str(self.txtApellidos.text())
-		self.fecha = str(self.txtFecha.text())
-		self.telefono = str(self.txtTelefono.text())
-		self.ciudad = str(self.txtCiudad.text())
-		self.nivel = str(self.cbxNivel.currentText())
+	def registrarEmpleado(self):
+		if self.conexionDB():
+			print('Correcto')
+			#self.cursor = self.con.cursor()
+			self.id = self.txtID.text()
+			self.cedula = str(self.txtCedula.text())
+			self.nombres = str(self.txtNombres.text())
+			self.apellidos = str(self.txtApellidos.text())
+			self.fecha = str(self.txtFecha.text())
+			self.edad = self.txtEdad.text()
+			self.aportaciones = self.txtAport.text()
+			self.dir1 = str(self.txtDireccion1.text())
+			self.dir2 = str(self.txtDireccion2.text())
+			self.telf1 = str(self.txtTelefono1.text())
+			self.telf2 = str(self.txtTelefono2.text())
+			self.email = str(self.txtCorreo.text())
+			self.sueldo = self.txtSueldo.text()
+			self.diasLabor = self.txtDias.text()
+			self.sexo = str(self.cbxSexo.currentText())
+			self.nivelAcad = str(self.cbxNivel.currentText())
+			self.cuentaBamc = str(self.txtCuenta.text())
+			self.tipoDisc = str(self.cbxDiscapacidad.currentText())
+			self.nombreRec = str(self.txtNombreRecom.text())
+			self.telfRec = str(self.txtTelefonoRecom.text())
+			self.celRec = str(self.txtCelularRecom.text())
+			self.ciudad = str(self.txtCiudad.text())
 
-		if self.cedula  == "" or self.cedula.isspace() or self.nombres  == "" or self.nombres.isspace() or self.apellidos  == "" or self.apellidos.isspace() or self.ciudad  == "" or self.ciudad.isspace() or self.telefono  == "" or self.telefono.isspace():
-			QtWidgets.QMessageBox.information(self, 'Informacion', 'Debe completar todos los campos', QtWidgets.QMessageBox.Ok)
-		else:
-			#if self.nombre.istitle() and self.marca.istitle() and self.color.isalpha() and self.talla.isdigit() and self.modelo.istitle():
-			if  self.btnGuardar.text() == 'Guardar':
+			"""if  self.btnGuardar.text() == 'Guardar':
 				self.guardarImagen()
-				self.datos = (self.cedula, self.nombres, self.apellidos, self.fecha, self.telefono, self.ciudad, self.nivel, self.fname)
-				self.cursor.execute("INSERT INTO estudiante (cedula, nombres, apellidos, fecha, telefono, ciudad, nivel, foto) VALUES (?,?,?,?,?,?,?,?)", self.datos)
-				QtWidgets.QMessageBox.information(self, 'Informacion', 'Registro Correcto', QtWidgets.QMessageBox.Ok)
-				self.borrarCampos()
-			elif self.btnGuardar.text() == 'Modificar':
-				modificar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea modificar los datos de este estudiante?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
-				if modificar == QtWidgets.QMessageBox.Ok: # Si decidimos modificar
-					self.guardarImagen()
-					self.datos = (self.cedula, self.nombres, self.apellidos, self.fecha, self.telefono, self.ciudad, self.nivel, self.fname, self.id)
-					self.cursor.execute("UPDATE estudiante set cedula = ?, nombres = ?, apellidos = ?, fecha = ?, telefono = ?, ciudad = ?, nivel = ?, foto = ? where id = ?", self.datos)
-					QtWidgets.QMessageBox.information(self, 'Informacion', 'Los datos han sido actualizados', QtWidgets.QMessageBox.Ok)
-					self.borrarCampos()
-			#else:
-			#   QtWidgets.QMessageBox.information(self, 'Informacion', 'Ingrese valores correctos', QtWidgets.QMessageBox.Ok)
-
-		self.con.commit()
-		self.con.close()
-		self.mostrarEstudiantes()
-
-	def mostrarEstudiantes(self):
-		"""Este metodo nos permite mostrar los estudiantes registrados en la base de datos"""
-		self.con = sqlite3.connect("./database/estudiantes.bd")
-		self.cursor = self.con.cursor()
-		self.cursor.execute("SELECT * FROM estudiante")
-		self.listaEstudiantes.clear() # Se vacia la lista
-		self.listaEstudiantes.setColumnCount(9)
-		self.listaEstudiantes.setHorizontalHeaderLabels(['Id', 'Cédula', 'Nombres', 'Apellidos', 'Fecha Nacimiento', 'Teléfono', 'Ciudad', 'Nivel', 'Foto'])
-		self.cur = self.cursor.fetchall()
-		self.listaEstudiantes.setRowCount(len(self.cur))
-		for i, row in enumerate(self.cur):
-			for j, val in enumerate(row):
-				self.listaEstudiantes.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
-
-	def eliminarEstudiante(self):
-		"""Este metodo nos permite eliminar un registro de estudiantes de la base de datos"""
-		self.con = sqlite3.connect("./database/estudiantes.bd") # Conexion a la base de datos
-		self.cursor = self.con.cursor() # Creacion del cursor
-		borrar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea eliminar este estudiante?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
-		if borrar == QtWidgets.QMessageBox.Ok: # Si decidimos borrar
-			self.cursor.execute("delete from estudiante where id = (?)", [self.txtID.text()]) # Se ejecuta la sentencia sql
-			QtWidgets.QMessageBox.information(self, 'Informacion', 'Estudiante Eliminado', QtWidgets.QMessageBox.Ok) # Se muestra mensaje
-			self.con.commit() # Se realiza un conmit
-			self.con.close() # Cerramos la conexion
-			self.mostrarEstudiantes() # Se actualiza la tabla de clientes
-			self.borrarCampos() # Se eliminan los campos del formulario
-
-	def buscarEstudiante(self): # Metodos de busqueda por id y por correo
-		"""Este metodo nos permite buscar un estudiante mediante su cedula, nombres, apellidos o nivel"""
-		item = self.cbxBusq.currentText() # Se guarda en variable el combobox de busqueda
-		self.dato = self.txtBusq.text() # Guarda en variable el dato a buscar
-		self.con = sqlite3.connect("./database/estudiantes.bd") # Nos conectamos a la base de datos
-		self.cursor = self.con.cursor() # Se crea el cursor
-		if self.dato == "" or self.dato.isspace():  # Si no se ingresa nada se muestran todos los datos 
-			self.mostrarEstudiantes()
-		else:
-			if item == 'Cédula':
-				self.cursor.execute("SELECT * FROM estudiante where cedula = (?)", [self.dato])
-			elif item == 'Apellidos':
-				self.cursor.execute("SELECT * FROM estudiante where apellidos = (?)", [self.dato])
-			elif item == 'Nombres':
-				self.cursor.execute("SELECT * FROM estudiante where nombres = (?)", [self.dato])
-			elif item == 'Nivel':
-				self.cursor.execute("SELECT * FROM estudiante where nivel = (?)", [self.dato])
-			
-			self.listaEstudiantes.clear() # Se vacia la lista
-			self.listaEstudiantes.setColumnCount(9)
-			self.listaEstudiantes.setHorizontalHeaderLabels(['Id', 'Cédula', 'Nombres', 'Apellidos', 'Fecha Nacimiento', 'Teléfono', 'Ciudad', 'Nivel', 'Foto'])
-			self.cur = self.cursor.fetchall()
-			self.listaEstudiantes.setRowCount(len(self.cur))
-			for i, row in enumerate(self.cur):
-				for j, val in enumerate(row):
-					self.listaEstudiantes.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
+				self.datos = (self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, 
+					self.aportaciones, self.dir1, self.dir2, self.telf1, self.telf2, self.email, self.sueldo,
+					self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc, self.nombreRec,
+					self.telfRec, self.celRec, self.ciudad, self.fname)
+				self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, edad, numero_aportaciones, direccion1, direccion2,"
+				"telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
+				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
+				[self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, 
+					self.aportaciones, self.dir1, self.dir2, self.telf1, self.telf2, self.email, self.sueldo,
+					self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc, self.nombreRec,
+					self.telfRec, self.celRec, self.ciudad, self.fname])
+			self.con.commit()
+			self.cursor.close()
+			self.con.close()"""
+			self.cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", ['1236'])
 
 
-
-	def seleccionarFila(self):
-		"""Este metodo nos permite seleccionar una fila de la tabla y obtener sus datos"""
-		identificador, cedula, nombres, apellidos, fecha, telefono, ciudad, nivel, foto = self.listaEstudiantes.selectedItems()
-		self.txtID.setText(identificador.text())
-		self.txtCedula.setText(cedula.text())
-		self.txtNombres.setText(nombres.text())
-		self.txtApellidos.setText(apellidos.text())
-		self.txtFecha.setDate(datetime.datetime.strptime(fecha.text(), "%d/%m/%Y"))
-		self.txtTelefono.setText(telefono.text())
-		self.txtCiudad.setText(ciudad.text())
-		self.cbxNivel.setCurrentIndex(int(nivel.text()) - 1)
-		self.verImagen.setPixmap(QtGui.QPixmap(str(foto.text())))
-		self.btnEliminar.setEnabled(True)
-		self.btnGuardar.setText("Modificar")
-
-
-
-	def borrarCampos(self):
-		"""Este metodo nos permite vaciar los campos del formulario de registro"""
-		self.txtID.setText("")
-		self.txtCedula.setText("")
-		self.txtNombres.setText("")
-		self.txtApellidos.setText("")
-		self.txtTelefono.setText("")
-		self.txtCiudad.setText("")
-		self.btnEliminar.setEnabled(False)
-		self.verImagen.setPixmap(QtGui.QPixmap(''))
-		self.btnGuardar.setText("Guardar")
 
 	def buscarImagen(self):
 		"""Este metodo nos permite buscar una imagen en nuestro equipo"""
@@ -216,17 +140,12 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 
 	def guardarImagen(self):
 		"""Este metodo nos permite guardar la imagen en nuestro equipo"""
-		#fname, filter = QtWidgets.QFileDialog.getSaveFileName(self, 'Open File', 'C:\\', 'Image Files (*.jpg)')
-		#print(fname)
 		self.random = randint(0, 999999999999)
 		self.fname = "./fotos/img_"+str(self.random)+'.jpg'
 		cv2.imwrite(self.fname, self.image)
 		print(self.fname)
-		#C:/Users/Pablo/Desktop/Documentos/2017/aplicaciones python/estudiantes/fotos/pablo.jpg
-		#if fname:
-		#   cv2.imwrite(fname, self.image)
-		#else:
-		#   print('Imagen inválida')
+
+
 
 if __name__ == "__main__":
 	app =  QtWidgets.QApplication(sys.argv)

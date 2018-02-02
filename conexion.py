@@ -8,15 +8,16 @@ dbname = 'DB_Empleados'
 password = 'userDB'
 
 # Cadena de conexión
-def conexionDB(self):
-	try:
-		conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
-		con = psycopg2.connect(conn_string)
-		print("Conexión establecida")
-		con.close() # si da error eliminar
-	except Exception as e:
-		QtWidgets.QMessageBox.information(self, 'Información', 'Error al conectarse a la base de datos', QtWidgets.QMessageBox.Ok)
+def conexionDB():
+	conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
+	con = psycopg2.connect(conn_string)
+	print("Conexión establecida")
+	cursor = con.cursor()
+	cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", ['1236'])
+	con.close() # si da error eliminar
 
+
+conexionDB()
 
 #cursor = con.cursor()
 #cursor.execute("DROP TABLE IF EXISTS empleado;")
