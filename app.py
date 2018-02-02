@@ -50,7 +50,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		#self.mostrarEstudiantes()
 			
 	def conexionDB(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', 'anlecap17')
 		self.con = psycopg2.connect(conn_string)
 		print("Conexión establecida")
 		self.cursor = self.con.cursor()
@@ -87,6 +87,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.ciudad = str(self.txtCiudad.text())
 		if  self.btnGuardar.text() == 'Guardar':
 			self.guardarImagen()
+			self.verificar()
 			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
 				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
 				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
@@ -143,21 +144,21 @@ if __name__ == "__main__":
 	sys.exit(app.exec_())
 
 #Validar cédula, revisar
-def verificar(nro):
-    l = len(nro)
+def verificar(cedula):
+    l = len(cedula)
     if l == 10 or l == 13: # verificar la longitud correcta
-        cp = int(nro[0:2])
+        cp = int(cedula[0:2])
         if cp >= 1 and cp <= 22: # verificar codigo de provincia
-            tercer_dig = int(nro[2])
+            tercer_dig = int(cedula[2])
             if tercer_dig >= 0 and tercer_dig < 6 : # numeros enter 0 y 6
                 if l == 10:
-                    return __validar_ced_ruc(nro,0)                       
+                    return __validar_ced_ruc(cedula,0)                       
                 elif l == 13:
-                    return __validar_ced_ruc(nro,0) and nro[10:13] != '000' # se verifica q los ultimos numeros no sean 000
+                    return __validar_ced_ruc(cedula,0) and cedula[10:13] != '000' # se verifica q los ultimos numeros no sean 000
             elif tercer_dig == 6:
-                return __validar_ced_ruc(nro,1) # sociedades publicas
+                return __validar_ced_ruc(cedula,1) # sociedades publicas
             elif tercer_dig == 9: # si es ruc
-                return __validar_ced_ruc(nro,2) # sociedades privadas
+                return __validar_ced_ruc(cedula,2) # sociedades privadas
             else:
                 raise Exception(u'Tercer digito invalido') 
         else:
@@ -165,22 +166,22 @@ def verificar(nro):
     else:
         raise Exception(u'Longitud incorrecta del numero ingresado')
 
-def __validar_ced_ruc(nro,tipo):
+def __validar_ced_ruc(cedula,tipo):
     total = 0
     if tipo == 0: # cedula y r.u.c persona natural
         base = 10
-        d_ver = int(nro[9])# digito verificador
+        d_ver = int(cedula[9])# digito verificador
         multip = (2, 1, 2, 1, 2, 1, 2, 1, 2)
     elif tipo == 1: # r.u.c. publicos
         base = 11
-        d_ver = int(nro[8])
+        d_ver = int(cedula[8])
         multip = (3, 2, 7, 6, 5, 4, 3, 2 )
     elif tipo == 2: # r.u.c. juridicos y extranjeros sin cedula
         base = 11
-        d_ver = int(nro[9])
+        d_ver = int(cedula[9])
         multip = (4, 3, 2, 7, 6, 5, 4, 3, 2)
     for i in range(0,len(multip)):
-        p = int(nro[i]) * multip[i]
+        p = int(cedula[i]) * multip[i]
         if tipo == 0:
             total+=p if p < 10 else int(str(p)[0])+int(str(p)[1])
         else:
