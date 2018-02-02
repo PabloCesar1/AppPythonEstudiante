@@ -3,9 +3,9 @@ from PyQt5 import QtWidgets #importamos QtWidgets desde el modulo PyQt5
 
 # Información de la base de datos
 host = 'localhost'
-user = 'admin'
+user = 'postgres'
 dbname = 'DB_Empleados'
-password = 'userDB'
+password = '123456'
 
 # Cadena de conexión
 def conexionDB():
@@ -13,9 +13,10 @@ def conexionDB():
 	con = psycopg2.connect(conn_string)
 	print("Conexión establecida")
 	cursor = con.cursor()
-	cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", ['1236'])
-	con.close() # si da error eliminar
-
+	cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", [434])
+	con.commit()
+	cursor.close()
+	con.close()
 
 conexionDB()
 

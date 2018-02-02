@@ -48,67 +48,55 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		 # Conexión a la base de datos creada en postgres
 		self.conexionDB()
 		#self.mostrarEstudiantes()
-		
+			
 	def conexionDB(self):
-		host = 'localhost'
-		user = 'admin'
-		dbname = 'DB_Empleados'
-		password = 'userDB'
-		try:
-			conn_string = "host={0} user={1} dbname={2} password={3}".format(host, user, dbname, password)
-			self.con = psycopg2.connect(conn_string)
-			print("Conexión establecida")
-			#self.con.close() # si da error eliminar
-			return True
-		except Exception as e:
-			QtWidgets.QMessageBox.information(self, 'Información', 'Error al conectarse a la base de datos', QtWidgets.QMessageBox.Ok)
-			return False
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		self.con = psycopg2.connect(conn_string)
+		print("Conexión establecida")
+		self.cursor = self.con.cursor()
+		#self.cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", [434])
+		#self.con.commit()
+		#self.cursor.close()
+		self.con.close()
 
 	def registrarEmpleado(self):
-		if self.conexionDB():
-			print('Correcto')
-			#self.cursor = self.con.cursor()
-			self.id = self.txtID.text()
-			self.cedula = str(self.txtCedula.text())
-			self.nombres = str(self.txtNombres.text())
-			self.apellidos = str(self.txtApellidos.text())
-			self.fecha = str(self.txtFecha.text())
-			self.edad = self.txtEdad.text()
-			self.aportaciones = self.txtAport.text()
-			self.dir1 = str(self.txtDireccion1.text())
-			self.dir2 = str(self.txtDireccion2.text())
-			self.telf1 = str(self.txtTelefono1.text())
-			self.telf2 = str(self.txtTelefono2.text())
-			self.email = str(self.txtCorreo.text())
-			self.sueldo = self.txtSueldo.text()
-			self.diasLabor = self.txtDias.text()
-			self.sexo = str(self.cbxSexo.currentText())
-			self.nivelAcad = str(self.cbxNivel.currentText())
-			self.cuentaBamc = str(self.txtCuenta.text())
-			self.tipoDisc = str(self.cbxDiscapacidad.currentText())
-			self.nombreRec = str(self.txtNombreRecom.text())
-			self.telfRec = str(self.txtTelefonoRecom.text())
-			self.celRec = str(self.txtCelularRecom.text())
-			self.ciudad = str(self.txtCiudad.text())
-
-			"""if  self.btnGuardar.text() == 'Guardar':
-				self.guardarImagen()
-				self.datos = (self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, 
-					self.aportaciones, self.dir1, self.dir2, self.telf1, self.telf2, self.email, self.sueldo,
-					self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc, self.nombreRec,
-					self.telfRec, self.celRec, self.ciudad, self.fname)
-				self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, edad, numero_aportaciones, direccion1, direccion2,"
-				"telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
-				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);",
-				[self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, 
-					self.aportaciones, self.dir1, self.dir2, self.telf1, self.telf2, self.email, self.sueldo,
-					self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc, self.nombreRec,
-					self.telfRec, self.celRec, self.ciudad, self.fname])
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		self.con = psycopg2.connect(conn_string)
+		self.cursor = self.con.cursor()
+		self.id = self.txtID.text()
+		self.cedula = self.txtCedula.text()
+		self.nombres = str(self.txtNombres.text())
+		self.apellidos = str(self.txtApellidos.text())
+		self.fecha = str(self.txtFecha.text())
+		self.edad = self.txtEdad.text()
+		self.aportaciones = self.txtAport.text()
+		self.dir1 = str(self.txtDireccion1.text())
+		self.dir2 = str(self.txtDireccion2.text())
+		self.telf1 = str(self.txtTelefono1.text())
+		self.telf2 = str(self.txtTelefono2.text())
+		self.email = str(self.txtCorreo.text())
+		self.sueldo = self.txtSueldo.text()
+		self.diasLabor = self.txtDias.text()
+		self.sexo = str(self.cbxSexo.currentText())
+		self.nivelAcad = str(self.cbxNivel.currentText())
+		self.cuentaBamc = str(self.txtCuenta.text())
+		self.tipoDisc = str(self.cbxDiscapacidad.currentText())
+		self.nombreRec = str(self.txtNombreRecom.text())
+		self.telfRec = str(self.txtTelefonoRecom.text())
+		self.celRec = str(self.txtCelularRecom.text())
+		self.ciudad = str(self.txtCiudad.text())
+		if  self.btnGuardar.text() == 'Guardar':
+			self.guardarImagen()
+			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
+				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
+				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
+				" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
+				[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
+				self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
+				self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
 			self.con.commit()
 			self.cursor.close()
-			self.con.close()"""
-			self.cursor.execute("INSERT INTO empleado (cedula) VALUES (%s);", ['1236'])
-
+			self.con.close()
 
 
 	def buscarImagen(self):
