@@ -279,7 +279,7 @@
     <string>Nuevo</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="listaEstudiantes">
+  <widget class="QTableWidget" name="listaEmpleados">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -307,7 +307,7 @@
     <number>0</number>
    </property>
    <property name="columnCount">
-    <number>9</number>
+    <number>23</number>
    </property>
    <column>
     <property name="text">
@@ -336,17 +336,87 @@
    </column>
    <column>
     <property name="text">
-     <string>Teléfono</string>
+     <string>Edad</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string># Aportaciones</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Dirección 1</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Dirección 2</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Teléfono 1</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Teléfono 2</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Email</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>New Column</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Días Laborales</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Género</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nivel Académico</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string># Cuenta Bancaria</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Tipo de Discapacidad</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nombre Recomendado</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Teléfono Recomendado</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Celular Recomendado</string>
     </property>
    </column>
    <column>
     <property name="text">
      <string>Ciudad</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nivel</string>
     </property>
    </column>
    <column>

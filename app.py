@@ -41,13 +41,13 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		#self.btnBuscar.clicked.connect(self.buscarEstudiante) # Id del boton conectado a la funcion guardarCliente
 		#self.btnLimpiar.clicked.connect(self.borrarCampos) # Id del boton conectado a la funcion guardarCliente
 		#self.btnEliminar.clicked.connect(self.eliminarEstudiante) # Id del boton conectado a la funcion guardarCliente
-		#self.listaEstudiantes.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
-		#self.listaEstudiantes.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
-		#self.listaEstudiantes.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
+		self.listaEmpleados.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
+		self.listaEmpleados.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
+		#self.listaEmpleados.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
 		#self.btnEliminar.setEnabled(False)
 		 # Conexión a la base de datos creada en postgres
 		self.conexionDB()
-		#self.mostrarEstudiantes()
+		self.mostrarEmpleados()
 			
 	def conexionDB(self):
 		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
@@ -98,6 +98,23 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 			self.cursor.close()
 			self.con.close()
 
+
+	def mostrarEmpleados(self):
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		self.con = psycopg2.connect(conn_string)
+		self.cursor = self.con.cursor()
+		self.cursor.execute("SELECT * FROM empleado")
+		self.listaEmpleados.clear() # Se vacia la lista
+		self.listaEmpleados.setColumnCount(23)
+		self.listaEmpleados.setHorizontalHeaderLabels(['Id', 'Cédula', 'Nombres', 'Apellidos', 'Fecha Nacimiento', 
+			'Edad', '# Aportaciones', 'Dirección 1', 'Dirección 2', 'Teléfono 1', 'Teléfono 2', 'Email', 'Sueldo', 'Dias Laborales',
+			'Género', '	Nivel Académico', '# Cuenta', 'Discapacidad', 'Nombre Recomendado', 'Teléfono Recomendado', 'Celular Recomendado'
+			, 'Ciudad', 'Foto'])
+		self.cur = self.cursor.fetchall()
+		self.listaEmpleados.setRowCount(len(self.cur))
+		for i, row in enumerate(self.cur):
+			for j, val in enumerate(row):
+				self.listaEmpleados.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
 
 	def buscarImagen(self):
 		"""Este metodo nos permite buscar una imagen en nuestro equipo"""
