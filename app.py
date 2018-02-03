@@ -43,14 +43,14 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		#self.btnEliminar.clicked.connect(self.eliminarEstudiante) # Id del boton conectado a la funcion guardarCliente
 		self.listaEmpleados.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
 		self.listaEmpleados.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
-		#self.listaEmpleados.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
+		self.listaEmpleados.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
 		#self.btnEliminar.setEnabled(False)
 		 # Conexión a la base de datos creada en postgres
 		self.conexionDB()
 		self.mostrarEmpleados()
 			
 	def conexionDB(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', 'anlecap17')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
 		self.con = psycopg2.connect(conn_string)
 		print("Conexión establecida")
 		self.cursor = self.con.cursor()
@@ -60,7 +60,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.con.close()
 
 	def registrarEmpleado(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', 'anlecap17')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
 		self.con = psycopg2.connect(conn_string)
 		self.cursor = self.con.cursor()
 		self.id = self.txtID.text()
@@ -87,7 +87,6 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.ciudad = str(self.txtCiudad.text())
 		if  self.btnGuardar.text() == 'Guardar':
 			self.guardarImagen()
-			#self.verificar()
 			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
 				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
 				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
@@ -95,7 +94,6 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 				[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
 				self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
 				self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
-			QtWidgets.QMessageBox.information(self, 'Información', 'Datos registrados con éxito', QtWidgets.QMessageBox.Ok)
 			self.con.commit()
 			self.cursor.close()
 			self.con.close()
@@ -117,6 +115,32 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		for i, row in enumerate(self.cur):
 			for j, val in enumerate(row):
 				self.listaEmpleados.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
+
+	def seleccionarFila(self):
+		"""Este metodo nos permite seleccionar una fila de la tabla y obtener sus datos"""
+		datos = self.listaEmpleados.selectedItems()
+		self.txtID.setText(datos[0].text())
+		self.txtCedula.setText(datos[1].text())
+		self.txtNombres.setText(datos[2].text())
+		self.txtApellidos.setText(datos[3].text())
+		self.txtFecha.setDate(datetime.datetime.strptime(datos[4].text(), "%d/%m/%Y"))
+		self.txtEdad.setText(datos[5].text())
+		self.txtAport.setValue(int(datos[6].text()))
+		self.txtDireccion1.setText(datos[7].text())
+		self.txtDireccion2.setText(datos[8].text())
+		self.txtTelefono1.setText(datos[9].text())
+		self.txtTelefono2.setText(datos[10].text())
+		self.txtCorreo.setText(datos[11].text())
+		self.txtSueldo.setValue(float(datos[12].text()))
+		self.txtDias.setValue(int(datos[13].text()))
+		#self.cbxSexo.setCurrentIndex(datos[14].text())
+		"""self.txtFecha.setDate(datetime.datetime.strptime(fecha.text(), "%d/%m/%Y"))
+		self.txtTelefono.setText(telefono.text())
+		self.txtCiudad.setText(ciudad.text())
+		self.cbxNivel.setCurrentIndex(int(nivel.text()) - 1)"""
+		#self.verImagen.setPixmap(QtGui.QPixmap(str(foto.text())))
+		self.btnEliminar.setEnabled(True)
+		self.btnGuardar.setText("Modificar")
 
 	def buscarImagen(self):
 		"""Este metodo nos permite buscar una imagen en nuestro equipo"""
@@ -162,21 +186,21 @@ if __name__ == "__main__":
 	sys.exit(app.exec_())
 
 #Validar cédula, revisar
-def verificar(cedula):
-    l = len(cedula)
+def verificar(nro):
+    l = len(nro)
     if l == 10 or l == 13: # verificar la longitud correcta
-        cp = int(cedula[0:2])
+        cp = int(nro[0:2])
         if cp >= 1 and cp <= 22: # verificar codigo de provincia
-            tercer_dig = int(cedula[2])
+            tercer_dig = int(nro[2])
             if tercer_dig >= 0 and tercer_dig < 6 : # numeros enter 0 y 6
                 if l == 10:
-                    return __validar_ced_ruc(cedula,0)                       
+                    return __validar_ced_ruc(nro,0)                       
                 elif l == 13:
-                    return __validar_ced_ruc(cedula,0) and cedula[10:13] != '000' # se verifica q los ultimos numeros no sean 000
+                    return __validar_ced_ruc(nro,0) and nro[10:13] != '000' # se verifica q los ultimos numeros no sean 000
             elif tercer_dig == 6:
-                return __validar_ced_ruc(cedula,1) # sociedades publicas
+                return __validar_ced_ruc(nro,1) # sociedades publicas
             elif tercer_dig == 9: # si es ruc
-                return __validar_ced_ruc(cedula,2) # sociedades privadas
+                return __validar_ced_ruc(nro,2) # sociedades privadas
             else:
                 raise Exception(u'Tercer digito invalido') 
         else:
@@ -184,22 +208,22 @@ def verificar(cedula):
     else:
         raise Exception(u'Longitud incorrecta del numero ingresado')
 
-def __validar_ced_ruc(cedula,tipo):
+def __validar_ced_ruc(nro,tipo):
     total = 0
     if tipo == 0: # cedula y r.u.c persona natural
         base = 10
-        d_ver = int(cedula[9])# digito verificador
+        d_ver = int(nro[9])# digito verificador
         multip = (2, 1, 2, 1, 2, 1, 2, 1, 2)
     elif tipo == 1: # r.u.c. publicos
         base = 11
-        d_ver = int(cedula[8])
+        d_ver = int(nro[8])
         multip = (3, 2, 7, 6, 5, 4, 3, 2 )
     elif tipo == 2: # r.u.c. juridicos y extranjeros sin cedula
         base = 11
-        d_ver = int(cedula[9])
+        d_ver = int(nro[9])
         multip = (4, 3, 2, 7, 6, 5, 4, 3, 2)
     for i in range(0,len(multip)):
-        p = int(cedula[i]) * multip[i]
+        p = int(nro[i]) * multip[i]
         if tipo == 0:
             total+=p if p < 10 else int(str(p)[0])+int(str(p)[1])
         else:
