@@ -132,7 +132,7 @@
     <item row="1" column="1">
      <widget class="QLineEdit" name="txtCedula">
       <property name="maxLength">
-       <number>10</number>
+       <number>11</number>
       </property>
      </widget>
     </item>
@@ -229,12 +229,19 @@
      </widget>
     </item>
     <item row="6" column="1">
-     <widget class="QSpinBox" name="txtAport"/>
+     <widget class="QSpinBox" name="txtAport">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QLineEdit" name="txtEdad">
-      <property name="readOnly">
-       <bool>true</bool>
+     <widget class="QSpinBox" name="txtEdad">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>150</number>
       </property>
      </widget>
     </item>
@@ -428,9 +435,9 @@
   <widget class="QWidget" name="formLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>840</x>
+     <x>860</x>
      <y>440</y>
-     <width>161</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -466,7 +473,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Nivel</string>
+        <string>Ciudad</string>
        </property>
       </item>
      </widget>
@@ -477,47 +484,6 @@
        <string>Buscar Por:</string>
       </property>
      </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>980</x>
-     <y>440</y>
-     <width>249</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="frmUsuarios_5">
-    <property name="leftMargin">
-     <number>12</number>
-    </property>
-    <property name="topMargin">
-     <number>12</number>
-    </property>
-    <property name="rightMargin">
-     <number>12</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="btnBuscar">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Buscar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="txtBusq"/>
     </item>
    </layout>
   </widget>
@@ -594,7 +560,11 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QDoubleSpinBox" name="txtSueldo"/>
+     <widget class="QDoubleSpinBox" name="txtSueldo">
+      <property name="maximum">
+       <double>9999.989999999999782</double>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="lblNombres_2">
@@ -773,6 +743,47 @@
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="txtCorreo"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="formLayoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>440</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="frmUsuarios_6">
+    <property name="leftMargin">
+     <number>12</number>
+    </property>
+    <property name="topMargin">
+     <number>12</number>
+    </property>
+    <property name="rightMargin">
+     <number>12</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="btnBuscar">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Buscar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="txtBusq"/>
     </item>
    </layout>
   </widget>

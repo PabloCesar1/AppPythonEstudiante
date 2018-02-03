@@ -29,6 +29,12 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		Ui_MainWindow.__init__(self) # Iniciar el diseño de qt creator
 		self.setupUi(self)  # Inicializamos la configuracion de la interfaz
 		self.setWindowTitle(u"Gestión de empleados")
+		
+		self.host = 'localhost'
+		self.dbname = 'DB_Empleados'
+		self.user = 'postgres'
+		self.password = '123456'
+
 		self.image = None
 		self.selecciona = False
 		self.fotoNueva = None
@@ -42,19 +48,26 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		###############################################
 		self.btnBuscarImg.clicked.connect(self.buscarImagen) # evento producido cuando se selecciona un elemento
 		self.btnGuardar.clicked.connect(self.registrarEmpleado) # Id del boton conectado a la funcion guardarCliente
-		#self.btnBuscar.clicked.connect(self.buscarEstudiante) # Id del boton conectado a la funcion guardarCliente
-		#self.btnLimpiar.clicked.connect(self.borrarCampos) # Id del boton conectado a la funcion guardarCliente
-		#self.btnEliminar.clicked.connect(self.eliminarEstudiante) # Id del boton conectado a la funcion guardarCliente
+		self.btnBuscar.clicked.connect(self.buscarEmpleado) # Id del boton conectado a la funcion guardarCliente
+		self.btnLimpiar.clicked.connect(self.borrarCampos) # Id del boton conectado a la funcion guardarCliente
+		self.btnEliminar.clicked.connect(self.eliminarEmpleado) # Id del boton conectado a la funcion guardarCliente
 		self.listaEmpleados.setSelectionBehavior(QtWidgets.QTableWidget.SelectRows) # seleccionar solo filas
 		self.listaEmpleados.setSelectionMode(QtWidgets.QTableWidget.SingleSelection) # usar seleccion simple, una fila a la vez
 		self.listaEmpleados.itemPressed.connect(self.seleccionarFila) # evento producido cuando se selecciona un elemento
-		#self.btnEliminar.setEnabled(False)
+		self.btnEliminar.setEnabled(False)
 		 # Conexión a la base de datos creada en postgres
 		self.conexionDB()
 		self.mostrarEmpleados()
+
+	def closeEvent(self, event):
+		"""Este metodo nos permite confirmar el cierre de una ventana"""
+		cerrar = QtWidgets.QMessageBox.question(self, "Salir", "¿Seguro que quieres salir de la aplicación?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+		if cerrar == QtWidgets.QMessageBox.Yes:
+			event.accept()
+		else: event.ignore()
 			
 	def conexionDB(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format(self.host, self.user, self.dbname, self.password)
 		self.con = psycopg2.connect(conn_string)
 		print("Conexión establecida")
 		self.cursor = self.con.cursor()
@@ -64,7 +77,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.con.close()
 
 	def registrarEmpleado(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format(self.host, self.user, self.dbname, self.password)
 		self.con = psycopg2.connect(conn_string)
 		self.cursor = self.con.cursor()
 		self.id = self.txtID.text()
@@ -89,41 +102,46 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.telfRec = str(self.txtTelefonoRecom.text())
 		self.celRec = str(self.txtCelularRecom.text())
 		self.ciudad = str(self.txtCiudad.text())
-		if  self.btnGuardar.text() == 'Guardar':
-			if self.selecciona:
-    				self.guardarImagen()
-			else:
-				self.fname = "Ninguna"
-			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
-				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
-				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
-				" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
-				[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
-				self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
-				self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
-			QtWidgets.QMessageBox.information(self, 'Informacion', 'Registro Correcto', QtWidgets.QMessageBox.Ok)
-		elif self.btnGuardar.text() == 'Modificar':
-			if self.selecciona:
-    				self.guardarImagen()
-			else:
-				self.fname = self.fotoActual
-			modificar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea modificar los datos de este empleado?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
-			if modificar == QtWidgets.QMessageBox.Ok: # Si decidimos modificar
-				self.cursor.execute("UPDATE empleado SET cedula=%s, nombres=%s, apellidos=%s, fecha_nacimiento=%s, numero_aportaciones=%s, direccion1=%s,"
-					"direccion2=%s, telefono1=%s, telefono2=%s, email=%s, sueldo=%s, dias_laborales=%s, genero=%s, nivel_academico=%s, numero_cuenta_bancaria=%s, tipo_discapacidad=%s,"
-					"nombre_recomendado=%s, telefono_recomendado=%s, celular_recomendado=%s, ciudad=%s, foto=%s where empleado_oid=%s",
-					#" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
-					[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
+		self.verificar(self.cedula)
+		if self.verificar(self.cedula):
+			if  self.btnGuardar.text() == 'Guardar':
+				if self.selecciona:
+						self.guardarImagen()
+				else:
+					self.fname = "Ninguna"
+				self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, edad, numero_aportaciones, direccion1,"
+					"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
+					"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
+					" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s , %s, %s, %s, %s);", 
+					[self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, self.aportaciones, self.dir1, self.dir2, self.telf1, 
 					self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
-					self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname, self.id])
-				QtWidgets.QMessageBox.information(self, 'Informacion', 'Los datos han sido actualizados', QtWidgets.QMessageBox.Ok)
-		self.con.commit()
-		self.cursor.close()
-		self.con.close()
-		self.mostrarEmpleados()
+					self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
+				QtWidgets.QMessageBox.information(self, 'Informacion', 'Registro Correcto', QtWidgets.QMessageBox.Ok)
+			elif self.btnGuardar.text() == 'Modificar':
+				if self.selecciona:
+						self.guardarImagen()
+				else:
+					self.fname = self.fotoActual
+				modificar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea modificar los datos de este empleado?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
+				if modificar == QtWidgets.QMessageBox.Ok: # Si decidimos modificar
+					self.cursor.execute("UPDATE empleado SET cedula=%s, nombres=%s, apellidos=%s, fecha_nacimiento=%s, edad=%s,  numero_aportaciones=%s, direccion1=%s,"
+						"direccion2=%s, telefono1=%s, telefono2=%s, email=%s, sueldo=%s, dias_laborales=%s, genero=%s, nivel_academico=%s, numero_cuenta_bancaria=%s, tipo_discapacidad=%s,"
+						"nombre_recomendado=%s, telefono_recomendado=%s, celular_recomendado=%s, ciudad=%s, foto=%s where empleado_oid=%s",
+						#" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
+						[self.cedula, self.nombres, self.apellidos, self.fecha, self.edad, self.aportaciones, self.dir1, self.dir2, self.telf1, 
+						self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
+						self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname, self.id])
+					QtWidgets.QMessageBox.information(self, 'Informacion', 'Los datos han sido actualizados', QtWidgets.QMessageBox.Ok)
+			self.con.commit()
+			self.cursor.close()
+			self.con.close()
+			self.borrarCampos()
+			self.mostrarEmpleados()
+		else:
+			QtWidgets.QMessageBox.information(self, 'Informacion', 'Escriba un número de cédula correcto', QtWidgets.QMessageBox.Ok)
 
 	def mostrarEmpleados(self):
-		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
+		conn_string = "host={0} user={1} dbname={2} password={3}".format(self.host, self.user, self.dbname, self.password)
 		self.con = psycopg2.connect(conn_string)
 		self.cursor = self.con.cursor()
 		self.cursor.execute("SELECT * FROM empleado")
@@ -139,6 +157,53 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 			for j, val in enumerate(row):
 				self.listaEmpleados.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
 
+	def eliminarEmpleado(self):
+		"""Este metodo nos permite eliminar un registro de estudiantes de la base de datos"""
+		conn_string = "host={0} user={1} dbname={2} password={3}".format(self.host, self.user, self.dbname, self.password)
+		self.con = psycopg2.connect(conn_string)
+		self.cursor = self.con.cursor()
+		borrar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea eliminar este empleado?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
+		if borrar == QtWidgets.QMessageBox.Ok: # Si decidimos borrar
+			self.cursor.execute("delete from empleado where empleado_oid = %s", [self.txtID.text()]) # Se ejecuta la sentencia sql
+			QtWidgets.QMessageBox.information(self, 'Información', 'Empleado Eliminado', QtWidgets.QMessageBox.Ok) # Se muestra mensaje
+			self.con.commit() # Se realiza un conmit
+			self.con.close() # Cerramos la conexion
+			self.mostrarEmpleados() # Se actualiza la tabla de clientes
+			self.btnEliminar.setEnabled(False)
+			self.borrarCampos() # Se eliminan los campos del formulario
+
+
+	def buscarEmpleado(self): # Metodos de busqueda por id y por correo
+		conn_string = "host={0} user={1} dbname={2} password={3}".format(self.host, self.user, self.dbname, self.password)
+		self.con = psycopg2.connect(conn_string)
+		self.cursor = self.con.cursor()
+		item = self.cbxBusq.currentText() # Se guarda en variable el combobox de busqueda
+		self.dato = self.txtBusq.text() # Guarda en variable el dato a buscar
+		if self.dato == "" or self.dato.isspace():  # Si no se ingresa nada se muestran todos los datos 
+			self.mostrarEmpleados()
+		else:
+			if item == 'Cédula':
+				self.cursor.execute("SELECT * FROM empleado where cedula = %s", [self.dato])
+			elif item == 'Apellidos':
+				self.cursor.execute("SELECT * FROM empleado where apellidos = %s", [self.dato])
+			elif item == 'Nombres':
+				self.cursor.execute("SELECT * FROM empleado where nombres = %s", [self.dato])
+			elif item == 'Ciudad':
+				self.cursor.execute("SELECT * FROM empleado where ciudad = %s", [self.dato])
+			
+			self.listaEmpleados.clear() # Se vacia la lista
+			self.listaEmpleados.setColumnCount(23)
+			self.listaEmpleados.setHorizontalHeaderLabels(['Id', 'Cédula', 'Nombres', 'Apellidos', 'Fecha Nacimiento', 
+				'Edad', '# Aportaciones', 'Dirección 1', 'Dirección 2', 'Teléfono 1', 'Teléfono 2', 'Email', 'Sueldo', 'Dias Laborales',
+				'Género', '	Nivel Académico', '# Cuenta', 'Discapacidad', 'Nombre Recomendado', 'Teléfono Recomendado', 'Celular Recomendado'
+				, 'Ciudad', 'Foto'])
+			self.cur = self.cursor.fetchall()
+			self.listaEmpleados.setRowCount(len(self.cur))
+			for i, row in enumerate(self.cur):
+				for j, val in enumerate(row):
+					self.listaEmpleados.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
+
+
 	def seleccionarFila(self):
 		"""Este metodo nos permite seleccionar una fila de la tabla y obtener sus datos"""
 		datos = self.listaEmpleados.selectedItems()
@@ -147,7 +212,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.txtNombres.setText(datos[2].text())
 		self.txtApellidos.setText(datos[3].text())
 		self.txtFecha.setDate(datetime.datetime.strptime(datos[4].text(), "%d/%m/%Y"))
-		self.txtEdad.setText(datos[5].text())
+		self.txtEdad.setValue(int(datos[5].text()))
 		self.txtAport.setValue(int(datos[6].text()))
 		self.txtDireccion1.setText(datos[7].text())
 		self.txtDireccion2.setText(datos[8].text())
@@ -174,6 +239,34 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.btnEliminar.setEnabled(True)
 		self.btnGuardar.setText("Modificar")
 		self.fotoActual = str(datos[22].text())
+
+	def borrarCampos(self):
+		"""Este metodo nos permite vaciar los campos del formulario de registro"""
+		self.txtID.setText("")
+		self.txtCedula.setText("")
+		self.txtNombres.setText("")
+		self.txtApellidos.setText("")
+		self.txtEdad.setValue(1)
+		self.txtAport.setValue(0)
+		self.txtDireccion1.setText("")
+		self.txtDireccion2.setText("")
+		self.txtTelefono1.setText("")
+		self.txtTelefono2.setText("")
+		self.txtCorreo.setText("")
+		self.txtSueldo.setValue(float(0))
+		self.txtDias.setValue(0)
+		self.cbxSexo.setCurrentIndex(0)
+		self.cbxNivel.setCurrentIndex(0)
+		self.txtCuenta.setText("")
+		self.cbxDiscapacidad.setCurrentIndex(0)
+		self.txtNombreRecom.setText("")
+		self.txtTelefonoRecom.setText("")
+		self.txtCelularRecom.setText("")
+		self.txtCiudad.setText("")
+
+		self.btnEliminar.setEnabled(False)
+		self.verImagen.setPixmap(QtGui.QPixmap(''))
+		self.btnGuardar.setText("Guardar")
 
 	def buscarImagen(self):
 		"""Este metodo nos permite buscar una imagen en nuestro equipo"""
@@ -211,58 +304,59 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		cv2.imwrite(self.fname, self.image)
 		print(self.fname)
 
+	def verificar(self, nro):
+		self.mensaje = ''
+		l = len(nro)
+		if l == 10 or l == 13: # verificar la longitud correcta
+			cp = int(nro[0:2])
+			if cp >= 1 and cp <= 22: # verificar codigo de provincia
+				tercer_dig = int(nro[2])
+				if tercer_dig >= 0 and tercer_dig < 6 : # numeros enter 0 y 6
+					if l == 10:
+						return self.validar_ced_ruc(nro,0)     
+					elif l == 13:
+						return self.validar_ced_ruc(nro,0) and nro[10:13] != '000' # se verifica q los ultimos numeros no sean 000
+				elif tercer_dig == 6:
+					return self.validar_ced_ruc(nro,1) # sociedades publicas
+				elif tercer_dig == 9: # si es ruc
+					return self.validar_ced_ruc(nro,2) # sociedades privadas
+				else:
+					return False
+			else:
+				return False
+		else:
+			return False
 
+	def validar_ced_ruc(self, nro, tipo):
+		total = 0
+		if tipo == 0: # cedula y r.u.c persona natural
+			base = 10
+			d_ver = int(nro[9])# digito verificador
+			multip = (2, 1, 2, 1, 2, 1, 2, 1, 2)
+		elif tipo == 1: # r.u.c. publicos
+			base = 11
+			d_ver = int(nro[8])
+			multip = (3, 2, 7, 6, 5, 4, 3, 2 )
+		elif tipo == 2: # r.u.c. juridicos y extranjeros sin cedula
+			base = 11
+			d_ver = int(nro[9])
+			multip = (4, 3, 2, 7, 6, 5, 4, 3, 2)
+		for i in range(0,len(multip)):
+			p = int(nro[i]) * multip[i]
+			if tipo == 0:
+				total+=p if p < 10 else int(str(p)[0])+int(str(p)[1])
+			else:
+				total+=p
+		mod = total % base
+		val = base - mod if mod != 0 else 0
+		return val == d_ver
 
 if __name__ == "__main__":
 	app =  QtWidgets.QApplication(sys.argv)
 	window = Estudiante()
-	#window.showFullScreen()
 	window.show()
 	sys.exit(app.exec_())
 
-#Validar cédula, revisar
-def verificar(nro):
-    l = len(nro)
-    if l == 10 or l == 13: # verificar la longitud correcta
-        cp = int(nro[0:2])
-        if cp >= 1 and cp <= 22: # verificar codigo de provincia
-            tercer_dig = int(nro[2])
-            if tercer_dig >= 0 and tercer_dig < 6 : # numeros enter 0 y 6
-                if l == 10:
-                    return __validar_ced_ruc(nro,0)                       
-                elif l == 13:
-                    return __validar_ced_ruc(nro,0) and nro[10:13] != '000' # se verifica q los ultimos numeros no sean 000
-            elif tercer_dig == 6:
-                return __validar_ced_ruc(nro,1) # sociedades publicas
-            elif tercer_dig == 9: # si es ruc
-                return __validar_ced_ruc(nro,2) # sociedades privadas
-            else:
-                raise Exception(u'Tercer digito invalido') 
-        else:
-            raise Exception(u'Codigo de provincia incorrecto') 
-    else:
-        raise Exception(u'Longitud incorrecta del numero ingresado')
 
-def __validar_ced_ruc(nro,tipo):
-    total = 0
-    if tipo == 0: # cedula y r.u.c persona natural
-        base = 10
-        d_ver = int(nro[9])# digito verificador
-        multip = (2, 1, 2, 1, 2, 1, 2, 1, 2)
-    elif tipo == 1: # r.u.c. publicos
-        base = 11
-        d_ver = int(nro[8])
-        multip = (3, 2, 7, 6, 5, 4, 3, 2 )
-    elif tipo == 2: # r.u.c. juridicos y extranjeros sin cedula
-        base = 11
-        d_ver = int(nro[9])
-        multip = (4, 3, 2, 7, 6, 5, 4, 3, 2)
-    for i in range(0,len(multip)):
-        p = int(nro[i]) * multip[i]
-        if tipo == 0:
-            total+=p if p < 10 else int(str(p)[0])+int(str(p)[1])
-        else:
-            total+=p
-    mod = total % base
-    val = base - mod if mod != 0 else 0
-    return val == d_ver
+
+
