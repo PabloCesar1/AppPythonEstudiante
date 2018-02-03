@@ -5,7 +5,7 @@ from PyQt5 import QtWidgets #importamos QtWidgets desde el modulo PyQt5
 host = 'localhost'
 user = 'postgres'
 dbname = 'DB_Empleados'
-password = '123456'
+password = 'anlecap17'
 
 # Cadena de conexión
 def conexionDB():
