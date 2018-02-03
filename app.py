@@ -8,9 +8,11 @@ import os
 import sqlite3
 import datetime
 import cv2 # Descargado opencv-python
-from PyQt5 import uic, QtWidgets, QtGui #importamos uic y QtWidgets desde el modulo PyQt5
+from PyQt5 import uic, QtWidgets, QtGui, QtCore #importamos uic y QtWidgets desde el modulo PyQt5
 from random import randint
 import psycopg2 # Descargado
+
+
 
 
 qtCreatorFile = "diseño.ui"
@@ -28,6 +30,8 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.setupUi(self)  # Inicializamos la configuracion de la interfaz
 		self.setWindowTitle(u"Gestión de empleados")
 		self.image = None
+		self.selecciona = False
+		self.fotoNueva = None
 		########## VALIDACIONES DE CAMPOS ##############
 		self.soloNumeros = QtGui.QIntValidator()
 		self.txtCedula.setValidator(self.soloNumeros)
@@ -86,7 +90,10 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.celRec = str(self.txtCelularRecom.text())
 		self.ciudad = str(self.txtCiudad.text())
 		if  self.btnGuardar.text() == 'Guardar':
-			self.guardarImagen()
+			if self.selecciona:
+    				self.guardarImagen()
+			else:
+				self.fname = "Ninguna"
 			self.cursor.execute("INSERT INTO empleado (cedula, nombres, apellidos, fecha_nacimiento, numero_aportaciones, direccion1,"
 				"direccion2, telefono1, telefono2, email, sueldo, dias_laborales, genero, nivel_academico, numero_cuenta_bancaria, tipo_discapacidad,"
 				"nombre_recomendado, telefono_recomendado, celular_recomendado, ciudad, foto)"
@@ -94,10 +101,26 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 				[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
 				self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
 				self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname])
-			self.con.commit()
-			self.cursor.close()
-			self.con.close()
-
+			QtWidgets.QMessageBox.information(self, 'Informacion', 'Registro Correcto', QtWidgets.QMessageBox.Ok)
+		elif self.btnGuardar.text() == 'Modificar':
+			if self.selecciona:
+    				self.guardarImagen()
+			else:
+				self.fname = self.fotoActual
+			modificar = QtWidgets.QMessageBox.question(self, 'Confirmación', '¿Desea modificar los datos de este empleado?', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Cancel) # Mensaje de confirmación
+			if modificar == QtWidgets.QMessageBox.Ok: # Si decidimos modificar
+				self.cursor.execute("UPDATE empleado SET cedula=%s, nombres=%s, apellidos=%s, fecha_nacimiento=%s, numero_aportaciones=%s, direccion1=%s,"
+					"direccion2=%s, telefono1=%s, telefono2=%s, email=%s, sueldo=%s, dias_laborales=%s, genero=%s, nivel_academico=%s, numero_cuenta_bancaria=%s, tipo_discapacidad=%s,"
+					"nombre_recomendado=%s, telefono_recomendado=%s, celular_recomendado=%s, ciudad=%s, foto=%s where empleado_oid=%s",
+					#" VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
+					[self.cedula, self.nombres, self.apellidos, self.fecha, self.aportaciones, self.dir1, self.dir2, self.telf1, 
+					self.telf2, self.email, self.sueldo, self.diasLabor, self.sexo, self.nivelAcad, self.cuentaBamc, self.tipoDisc,
+					self.nombreRec, self.telfRec, self.celRec, self.ciudad, self.fname, self.id])
+				QtWidgets.QMessageBox.information(self, 'Informacion', 'Los datos han sido actualizados', QtWidgets.QMessageBox.Ok)
+		self.con.commit()
+		self.cursor.close()
+		self.con.close()
+		self.mostrarEmpleados()
 
 	def mostrarEmpleados(self):
 		conn_string = "host={0} user={1} dbname={2} password={3}".format('localhost', 'postgres', 'DB_Empleados', '123456')
@@ -133,22 +156,34 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.txtCorreo.setText(datos[11].text())
 		self.txtSueldo.setValue(float(datos[12].text()))
 		self.txtDias.setValue(int(datos[13].text()))
-		#self.cbxSexo.setCurrentIndex(datos[14].text())
-		"""self.txtFecha.setDate(datetime.datetime.strptime(fecha.text(), "%d/%m/%Y"))
-		self.txtTelefono.setText(telefono.text())
-		self.txtCiudad.setText(ciudad.text())
-		self.cbxNivel.setCurrentIndex(int(nivel.text()) - 1)"""
-		#self.verImagen.setPixmap(QtGui.QPixmap(str(foto.text())))
+		index1 = self.cbxSexo.findText(datos[14].text(), QtCore.Qt.MatchFixedString)
+		if index1 >= 0:
+			self.cbxSexo.setCurrentIndex(index1)
+		index2 = self.cbxNivel.findText(datos[15].text(), QtCore.Qt.MatchFixedString)
+		if index2 >= 0:
+			self.cbxNivel.setCurrentIndex(index2)
+		self.txtCuenta.setText(datos[16].text())
+		index3 = self.cbxDiscapacidad.findText(datos[17].text(), QtCore.Qt.MatchFixedString)
+		if index3 >= 0:
+			self.cbxDiscapacidad.setCurrentIndex(index3)
+		self.txtNombreRecom.setText(datos[18].text())
+		self.txtTelefonoRecom.setText(datos[19].text())
+		self.txtCelularRecom.setText(datos[20].text())
+		self.txtCiudad.setText(datos[21].text())
+		self.verImagen.setPixmap(QtGui.QPixmap(str(datos[22].text())))
 		self.btnEliminar.setEnabled(True)
 		self.btnGuardar.setText("Modificar")
+		self.fotoActual = str(datos[22].text())
 
 	def buscarImagen(self):
 		"""Este metodo nos permite buscar una imagen en nuestro equipo"""
 		fname, filter = QtWidgets.QFileDialog.getOpenFileName(self, 'Open File', 'C:\\', 'Image Files (*.jpg)')
 		if fname:
+			self.selecciona = True
 			self.cargarImagen(fname)
 		else:
 			print('Imagen inválida')
+			self.selecciona = False
 
 	def cargarImagen(self, fname):
 		"""Este metodo nos permite cargar la imagen seleccionada
