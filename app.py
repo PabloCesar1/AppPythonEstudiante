@@ -33,7 +33,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.host = 'localhost'
 		self.dbname = 'DB_Empleados'
 		self.user = 'postgres'
-		self.password = '123456'
+		self.password = '12345'
 
 		self.image = None
 		self.selecciona = False
@@ -92,7 +92,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.telf1 = str(self.txtTelefono1.text())
 		self.telf2 = str(self.txtTelefono2.text())
 		self.email = str(self.txtCorreo.text())
-		self.sueldo = self.txtSueldo.text()
+		self.sueldo = self.txtSueldo.text().replace(",",".")
 		self.diasLabor = self.txtDias.text()
 		self.sexo = str(self.cbxSexo.currentText())
 		self.nivelAcad = str(self.cbxNivel.currentText())
