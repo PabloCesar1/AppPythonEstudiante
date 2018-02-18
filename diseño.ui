@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1236</width>
-    <height>668</height>
+    <height>576</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,6 +44,740 @@
   <property name="inputMethodHints">
    <set>Qt::ImhNone</set>
   </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>1251</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Información</string>
+    </attribute>
+    <widget class="QWidget" name="formLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>60</y>
+       <width>361</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblId">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtID">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="inputMask">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblCedula">
+        <property name="text">
+         <string>Cédula</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="txtCedula">
+        <property name="maxLength">
+         <number>11</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblNombres">
+        <property name="text">
+         <string>Nombres</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="txtNombres"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblApellidos">
+        <property name="text">
+         <string>Apellidos</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="txtApellidos"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lblFecha">
+        <property name="text">
+         <string>Fecha de Nacimiento</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QDateEdit" name="txtFecha"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="lblTelefono">
+        <property name="text">
+         <string>Edad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QSpinBox" name="txtEdad">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>150</number>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="lblCiudad">
+        <property name="text">
+         <string>N° Aportaciones</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QSpinBox" name="txtAport">
+        <property name="maximum">
+         <number>9999</number>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="lblNivel">
+        <property name="text">
+         <string>Dirección 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="txtDireccion1"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="lblNivel_2">
+        <property name="text">
+         <string>Dirección 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="txtDireccion2"/>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="lblNivel_3">
+        <property name="text">
+         <string>Teléfono 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="txtTelefono1">
+        <property name="maxLength">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="lblNivel_4">
+        <property name="text">
+         <string>Teléfono 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="txtTelefono2">
+        <property name="maxLength">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>60</y>
+       <width>391</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblId_2">
+        <property name="text">
+         <string>E-mail</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblCedula_2">
+        <property name="text">
+         <string>Sueldo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="txtSueldo">
+        <property name="maximum">
+         <double>9999.989999999999782</double>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblNombres_2">
+        <property name="text">
+         <string>Días laborales</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="txtDias">
+        <property name="maximum">
+         <number>365</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblApellidos_2">
+        <property name="text">
+         <string>Sexo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="cbxSexo">
+        <item>
+         <property name="text">
+          <string>Masculino</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Femenino</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lblFecha_2">
+        <property name="text">
+         <string>Nivel académico</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="cbxNivel">
+        <item>
+         <property name="text">
+          <string>Básica Primaria</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Básica Secundaria</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Formación Tecnológica</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Formación Universitaria</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Profesional</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Postgrado o Especialización</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Magister, PHD</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="lblTelefono_2">
+        <property name="text">
+         <string>Cuenta bancaria</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="txtCuenta"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="lblCiudad_2">
+        <property name="text">
+         <string>Tipo discapacidad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QComboBox" name="cbxDiscapacidad">
+        <item>
+         <property name="text">
+          <string>Ninguna</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Discapacidad física o motora</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Discapacidad auditiva</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Discapacidad visual</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Discapacidad intelectual o mental</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="lblNivel_5">
+        <property name="text">
+         <string>Nombre recomendado</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="txtNombreRecom"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="lblNivel_6">
+        <property name="text">
+         <string>Teléfono recomendado</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="txtTelefonoRecom">
+        <property name="maxLength">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="lblNivel_7">
+        <property name="text">
+         <string>Celular recomendado</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QLineEdit" name="txtCelularRecom">
+        <property name="maxLength">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="lblNivel_8">
+        <property name="text">
+         <string>Ciudad </string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QLineEdit" name="txtCiudad"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtCorreo"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="btnLimpiar">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>370</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Nuevo</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="verImagen">
+     <property name="geometry">
+      <rect>
+       <x>920</x>
+       <y>110</y>
+       <width>221</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnEliminar">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>370</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Eliminar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnGuardar">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>370</y>
+       <width>80</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Guardar</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnBuscarImg">
+     <property name="geometry">
+      <rect>
+       <x>960</x>
+       <y>350</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Buscar Imagen</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Consulta</string>
+    </attribute>
+    <widget class="QTableWidget" name="listaEmpleados">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>1191</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="dragDropOverwriteMode">
+      <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <property name="columnCount">
+      <number>23</number>
+     </property>
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Cédula</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombres</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Apelidos</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Fecha de Nacimiento</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Edad</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string># Aportaciones</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Dirección 1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Dirección 2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Teléfono 1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Teléfono 2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>New Column</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Días Laborales</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Género</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nivel Académico</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string># Cuenta Bancaria</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Tipo de Discapacidad</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre Recomendado</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Teléfono Recomendado</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Celular Recomendado</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Ciudad</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Foto</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>156</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="frmUsuarios_4">
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>12</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="cbxBusq">
+        <item>
+         <property name="text">
+          <string>Cédula</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Apellidos</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombres</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ciudad</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblBusq_2">
+        <property name="text">
+         <string>Buscar Por:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="frmUsuarios_6">
+      <property name="leftMargin">
+       <number>12</number>
+      </property>
+      <property name="topMargin">
+       <number>12</number>
+      </property>
+      <property name="rightMargin">
+       <number>12</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="btnBuscar">
+        <property name="font">
+         <font>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Buscar</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtBusq"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>591</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Traslade al formulario de la pestaña Información para modificar y eliminar</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QFrame" name="fondoTitulo">
    <property name="geometry">
     <rect>
@@ -69,7 +803,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Registro de Empleados</string>
+     <string>Registro de Pacientes</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -92,702 +826,40 @@
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>110</y>
-     <width>361</width>
-     <height>331</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="lblId">
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="txtID">
-      <property name="inputMethodHints">
-       <set>Qt::ImhNone</set>
-      </property>
-      <property name="inputMask">
-       <string/>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lblCedula">
-      <property name="text">
-       <string>Cédula</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="txtCedula">
-      <property name="maxLength">
-       <number>11</number>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="lblNombres">
-      <property name="text">
-       <string>Nombres</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="txtNombres"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lblApellidos">
-      <property name="text">
-       <string>Apellidos</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="txtApellidos"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="lblFecha">
-      <property name="text">
-       <string>Fecha de Nacimiento</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QDateEdit" name="txtFecha"/>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="lblTelefono">
-      <property name="text">
-       <string>Edad</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="lblCiudad">
-      <property name="text">
-       <string>N° Aportaciones</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="lblNivel">
-      <property name="text">
-       <string>Dirección 1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="txtDireccion1"/>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="lblNivel_2">
-      <property name="text">
-       <string>Dirección 2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QLineEdit" name="txtDireccion2"/>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="lblNivel_3">
-      <property name="text">
-       <string>Teléfono 1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QLineEdit" name="txtTelefono1">
-      <property name="maxLength">
-       <number>10</number>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="lblNivel_4">
-      <property name="text">
-       <string>Teléfono 2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="1">
-     <widget class="QLineEdit" name="txtTelefono2">
-      <property name="maxLength">
-       <number>10</number>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QSpinBox" name="txtAport">
-      <property name="maximum">
-       <number>9999</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QSpinBox" name="txtEdad">
-      <property name="minimum">
-       <number>1</number>
-      </property>
-      <property name="maximum">
-       <number>150</number>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="btnGuardar">
-   <property name="geometry">
-    <rect>
-     <x>730</x>
-     <y>420</y>
-     <width>80</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Guardar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnEliminar">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>420</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Eliminar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnLimpiar">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>420</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Nuevo</string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="listaEmpleados">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>490</y>
-     <width>1191</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="cursor" stdset="0">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="statusTip">
-    <string/>
-   </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::NoEditTriggers</set>
-   </property>
-   <property name="dragDropOverwriteMode">
-    <bool>true</bool>
-   </property>
-   <property name="rowCount">
-    <number>0</number>
-   </property>
-   <property name="columnCount">
-    <number>23</number>
-   </property>
-   <column>
-    <property name="text">
-     <string>ID</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Cédula</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nombres</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Apelidos</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Fecha de Nacimiento</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Edad</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string># Aportaciones</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Dirección 1</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Dirección 2</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Teléfono 1</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Teléfono 2</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Email</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>New Column</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Días Laborales</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Género</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nivel Académico</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string># Cuenta Bancaria</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Tipo de Discapacidad</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nombre Recomendado</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Teléfono Recomendado</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Celular Recomendado</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Ciudad</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Foto</string>
-    </property>
-   </column>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>860</x>
-     <y>440</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="frmUsuarios_4">
-    <property name="leftMargin">
-     <number>12</number>
-    </property>
-    <property name="topMargin">
-     <number>12</number>
-    </property>
-    <property name="rightMargin">
-     <number>12</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item row="0" column="1">
-     <widget class="QComboBox" name="cbxBusq">
-      <item>
-       <property name="text">
-        <string>Cédula</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Apellidos</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Nombres</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Ciudad</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="lblBusq_2">
-      <property name="text">
-       <string>Buscar Por:</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="verImagen">
-   <property name="geometry">
-    <rect>
-     <x>920</x>
-     <y>110</y>
-     <width>221</width>
-     <height>211</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <property name="lineWidth">
-    <number>1</number>
-   </property>
-   <property name="midLineWidth">
-    <number>0</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btnBuscarImg">
-   <property name="geometry">
-    <rect>
-     <x>960</x>
-     <y>350</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Buscar Imagen</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget_4">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>110</y>
-     <width>391</width>
-     <height>311</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout_2">
-    <item row="0" column="0">
-     <widget class="QLabel" name="lblId_2">
-      <property name="text">
-       <string>E-mail</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="lblCedula_2">
-      <property name="text">
-       <string>Sueldo</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QDoubleSpinBox" name="txtSueldo">
-      <property name="maximum">
-       <double>9999.989999999999782</double>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="lblNombres_2">
-      <property name="text">
-       <string>Días laborales</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QSpinBox" name="txtDias">
-      <property name="maximum">
-       <number>365</number>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="lblApellidos_2">
-      <property name="text">
-       <string>Sexo</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QComboBox" name="cbxSexo">
-      <item>
-       <property name="text">
-        <string>Masculino</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Femenino</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="lblFecha_2">
-      <property name="text">
-       <string>Nivel académico</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QComboBox" name="cbxNivel">
-      <item>
-       <property name="text">
-        <string>Básica Primaria</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Básica Secundaria</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Formación Tecnológica</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Formación Universitaria</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Profesional</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Postgrado o Especialización</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Magister, PHD</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="lblTelefono_2">
-      <property name="text">
-       <string>Cuenta bancaria</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="txtCuenta"/>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="lblCiudad_2">
-      <property name="text">
-       <string>Tipo discapacidad</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QComboBox" name="cbxDiscapacidad">
-      <item>
-       <property name="text">
-        <string>Ninguna</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Discapacidad física o motora</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Discapacidad auditiva</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Discapacidad visual</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Discapacidad intelectual o mental</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="lblNivel_5">
-      <property name="text">
-       <string>Nombre recomendado</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="txtNombreRecom"/>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="lblNivel_6">
-      <property name="text">
-       <string>Teléfono recomendado</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QLineEdit" name="txtTelefonoRecom">
-      <property name="maxLength">
-       <number>10</number>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="lblNivel_7">
-      <property name="text">
-       <string>Celular recomendado</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QLineEdit" name="txtCelularRecom">
-      <property name="maxLength">
-       <number>10</number>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="0">
-     <widget class="QLabel" name="lblNivel_8">
-      <property name="text">
-       <string>Ciudad </string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="1">
-     <widget class="QLineEdit" name="txtCiudad"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="txtCorreo"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="formLayoutWidget_5">
-   <property name="geometry">
-    <rect>
-     <x>1000</x>
-     <y>440</y>
-     <width>231</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="frmUsuarios_6">
-    <property name="leftMargin">
-     <number>12</number>
-    </property>
-    <property name="topMargin">
-     <number>12</number>
-    </property>
-    <property name="rightMargin">
-     <number>12</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="btnBuscar">
-      <property name="font">
-       <font>
-        <pointsize>-1</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Buscar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="txtBusq"/>
-    </item>
-   </layout>
-  </widget>
  </widget>
+ <tabstops>
+  <tabstop>txtCedula</tabstop>
+  <tabstop>txtNombres</tabstop>
+  <tabstop>txtApellidos</tabstop>
+  <tabstop>txtFecha</tabstop>
+  <tabstop>txtEdad</tabstop>
+  <tabstop>txtAport</tabstop>
+  <tabstop>txtDireccion1</tabstop>
+  <tabstop>txtDireccion2</tabstop>
+  <tabstop>txtTelefono1</tabstop>
+  <tabstop>txtTelefono2</tabstop>
+  <tabstop>txtCorreo</tabstop>
+  <tabstop>txtSueldo</tabstop>
+  <tabstop>txtDias</tabstop>
+  <tabstop>cbxSexo</tabstop>
+  <tabstop>cbxNivel</tabstop>
+  <tabstop>txtCuenta</tabstop>
+  <tabstop>cbxDiscapacidad</tabstop>
+  <tabstop>txtNombreRecom</tabstop>
+  <tabstop>txtTelefonoRecom</tabstop>
+  <tabstop>txtCelularRecom</tabstop>
+  <tabstop>txtCiudad</tabstop>
+  <tabstop>btnBuscarImg</tabstop>
+  <tabstop>btnLimpiar</tabstop>
+  <tabstop>btnEliminar</tabstop>
+  <tabstop>btnGuardar</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>txtID</tabstop>
+  <tabstop>cbxBusq</tabstop>
+  <tabstop>txtBusq</tabstop>
+  <tabstop>listaEmpleados</tabstop>
+  <tabstop>btnBuscar</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

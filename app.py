@@ -11,12 +11,11 @@ import cv2 # Descargado opencv-python
 from PyQt5 import uic, QtWidgets, QtGui, QtCore #importamos uic y QtWidgets desde el modulo PyQt5
 from random import randint
 import psycopg2 # Descargado
-
+import qdarkstyle # Descargado
 
 
 
 qtCreatorFile = "diseño.ui"
-if not os.path.exists('database'): os.makedirs('database')
 if not os.path.exists('fotos'): os.makedirs('fotos')
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile) # usammos loadUiType para cargar el diseño de qt creator
@@ -46,6 +45,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.txtTelefonoRecom.setValidator(self.soloNumeros)
 		self.txtCelularRecom.setValidator(self.soloNumeros)
 		###############################################
+
 		self.btnBuscarImg.clicked.connect(self.buscarImagen) # evento producido cuando se selecciona un elemento
 		self.btnGuardar.clicked.connect(self.registrarEmpleado) # Id del boton conectado a la funcion guardarCliente
 		self.btnBuscar.clicked.connect(self.buscarEmpleado) # Id del boton conectado a la funcion guardarCliente
@@ -58,6 +58,7 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		 # Conexión a la base de datos creada en postgres
 		self.conexionDB()
 		self.mostrarEmpleados()
+		
 
 	def closeEvent(self, event):
 		"""Este metodo nos permite confirmar el cierre de una ventana"""
@@ -92,7 +93,8 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		self.telf1 = str(self.txtTelefono1.text())
 		self.telf2 = str(self.txtTelefono2.text())
 		self.email = str(self.txtCorreo.text())
-		self.sueldo = self.txtSueldo.text()
+		#self.sueldo = self.txtSueldo.text()
+		self.sueldo = self.txtSueldo.text().replace(",",".")
 		self.diasLabor = self.txtDias.text()
 		self.sexo = str(self.cbxSexo.currentText())
 		self.nivelAcad = str(self.cbxNivel.currentText())
@@ -351,8 +353,26 @@ class Estudiante(QtWidgets.QMainWindow, Ui_MainWindow):  # Creamos nuestra clase
 		val = base - mod if mod != 0 else 0
 		return val == d_ver
 
+
+class MyProxyStyle(QtWidgets.QProxyStyle):
+	""" Soporte para pantallas 4k"""
+	pass
+	def pixelMetric(self, QStyle_PixelMetric, option=None, widget=None):
+
+		if QStyle_PixelMetric == QtWidgets.QStyle.PM_SmallIconSize:
+			return 40
+		else:
+			return QtWidgets.QProxyStyle.pixelMetric(self, QStyle_PixelMetric, option, widget)
+
+
 if __name__ == "__main__":
 	app =  QtWidgets.QApplication(sys.argv)
+	#app.setStyle(QtWidgets.QStyleFactory.create('Fusion')) # <- Choose the style
+	myStyle = MyProxyStyle('Fusion')    # The proxy style should be based on an existing style,
+	# like 'Windows', 'Motif', 'Plastique', 'Fusion', ...
+	app.setStyle(myStyle)
+	#dark_stylesheet = qdarkstyle.load_stylesheet_pyqt5()
+	#app.setStyleSheet(dark_stylesheet)
 	window = Estudiante()
 	window.show()
 	sys.exit(app.exec_())
